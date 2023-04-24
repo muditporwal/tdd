@@ -14,6 +14,11 @@ public record ElementPlanner(Wall wall, Dealer dealer) {
     elements.add(new WardrobeElement(50));
     elements.add(new WardrobeElement(50));
     consolidatedList.add(elements);
+    ArrayList<WardrobeElement> elements50n100 = new ArrayList<>();
+    elements50n100.add(new WardrobeElement(100));
+    elements50n100.add(new WardrobeElement(100));
+    elements50n100.add(new WardrobeElement(50));
+    consolidatedList.add(elements50n100);
     return consolidatedList;
   }
 }
