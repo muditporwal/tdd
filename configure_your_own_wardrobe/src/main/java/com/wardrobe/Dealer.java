@@ -12,12 +12,12 @@ public class Dealer {
   }
 
   private List<WardrobeElement> initCatalog() {
-    List<WardrobeElement> catalog = new ArrayList<>();
-    catalog.add(new WardrobeElement(50));
-    catalog.add(new WardrobeElement(75));
-    catalog.add(new WardrobeElement(100));
-    catalog.add(new WardrobeElement(120));
-    return catalog;
+    List<WardrobeElement> newCatalog = new ArrayList<>();
+    newCatalog.add(new WardrobeElement(50));
+    newCatalog.add(new WardrobeElement(75));
+    newCatalog.add(new WardrobeElement(100));
+    newCatalog.add(new WardrobeElement(120));
+    return newCatalog;
   }
 
   public List<WardrobeElement> getCatalog() {
