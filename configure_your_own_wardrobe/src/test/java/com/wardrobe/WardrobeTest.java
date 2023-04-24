@@ -25,4 +25,6 @@ class WardrobeTest {
     List<WardrobeElement> catalog = dealer.getCatalog();
     assertEquals(4, catalog.size());
   }
+
+  /** - Catalog does not have the number of items - Catalg does not have price * */
 }
