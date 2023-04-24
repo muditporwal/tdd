@@ -13,4 +13,8 @@ public class ElementPlanner {
   public Wall getWall() {
     return this.wall;
   }
+
+  public Dealer getDealer() {
+    return this.dealer;
+  }
 }
