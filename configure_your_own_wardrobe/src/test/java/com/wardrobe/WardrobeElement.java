@@ -1,9 +1,13 @@
 package com.wardrobe;
 
 public class WardrobeElement {
-    int length;
+  int length;
 
-    public int lengthInCms() {
-        return length;
-    }
+  public WardrobeElement(int lengthInCms) {
+    length = lengthInCms;
+  }
+
+  public int lengthInCms() {
+    return length;
+  }
 }

@@ -14,7 +14,7 @@ class WardrobeTest {
 
   @Test
   void checkElementsOfWardrobe() {
-    WardrobeElement element50 = new WardrobeElement();
+    WardrobeElement element50 = new WardrobeElement(50);
     assertEquals(50, element50.lengthInCms());
   }
 }
