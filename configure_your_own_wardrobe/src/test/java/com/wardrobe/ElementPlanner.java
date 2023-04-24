@@ -9,4 +9,8 @@ public class ElementPlanner {
     this.wall = wall;
     this.dealer = dealer;
   }
+
+  public Wall getWall() {
+    return this.wall;
+  }
 }
