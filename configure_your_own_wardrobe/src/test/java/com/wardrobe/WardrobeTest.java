@@ -22,6 +22,7 @@ class WardrobeTest {
   @Test
   void checkDealerOptions() {
     Dealer dealer = new Dealer();
-    List<WardrobeElement> catalogue = dealer.getCatalogue();
+    List<WardrobeElement> catalog = dealer.getCatalog();
+    assertEquals(4, catalog.size());
   }
 }
