@@ -11,7 +11,7 @@ public class ElementPlannerTest {
     Wall wall = new Wall(250);
     Dealer dealer = new Dealer();
     ElementPlanner planner = new ElementPlanner(wall, dealer);
-    assertEquals(wall.lengthInCms(), planner.getWall().lengthInCms());
-    assertEquals(dealer.getCatalog().size(), planner.getDealer().getCatalog().size());
+    assertEquals(wall.lengthInCms(), planner.wall().lengthInCms());
+    assertEquals(dealer.getCatalog().size(), planner.dealer().getCatalog().size());
   }
 }
