@@ -49,4 +49,23 @@ class ElementPlannerTest {
     ElementPlanner planner = new ElementPlanner(wall, dealer);
     assertEquals(0, planner.getCombinations().size());
   }
+
+  // One element fits wall
+  @Test
+  void testOneElementFitsWall() {
+    Wall wall = new Wall(50);
+    Dealer dealer = new Dealer();
+    assertNotNull(dealer.getCatalog());
+    ElementPlanner planner = new ElementPlanner(wall, dealer);
+    assertEquals(1, planner.getCombinations().size());
+  }
+
+  @Test
+  void testOnlyOneElementFitsWall() {
+    Wall wall = new Wall(75);
+    Dealer dealer = new Dealer();
+    assertNotNull(dealer.getCatalog());
+    ElementPlanner planner = new ElementPlanner(wall, dealer);
+    assertEquals(1, planner.getCombinations().size());
+  }
 }
