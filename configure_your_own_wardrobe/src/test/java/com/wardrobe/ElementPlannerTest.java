@@ -47,6 +47,6 @@ class ElementPlannerTest {
     Dealer dealer = new Dealer();
     assertNotNull(dealer.getCatalog());
     ElementPlanner planner = new ElementPlanner(wall, dealer);
-    assertThrows(IllegalStateException.class, planner::getCombinations);
+    assertEquals(0, planner.getCombinations().size());
   }
 }
