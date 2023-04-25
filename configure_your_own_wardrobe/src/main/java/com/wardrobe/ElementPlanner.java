@@ -6,9 +6,20 @@ import java.util.List;
 public record ElementPlanner(Wall wall, Dealer dealer) {
 
   public List<List<WardrobeElement>> getCombinations() {
-    if (dealer.getCatalog() == null || dealer.getCatalog().isEmpty()) {
+    List<WardrobeElement> catalog = dealer.getCatalog();
+    if (catalog == null || catalog.isEmpty()) {
       throw new IllegalStateException("Dealer has no catalog");
     }
-    return new ArrayList<>();
+    ArrayList<List<WardrobeElement>> combinations = new ArrayList<>();
+    for (WardrobeElement wardrobeElement : catalog) {
+      List<WardrobeElement> accumulator = new ArrayList<>();
+      if (wall.lengthInCms() < wardrobeElement.lengthInCms()) {
+        continue;
+      } else {
+        accumulator.add(wardrobeElement);
+      }
+      combinations.add(accumulator);
+    }
+    return combinations;
   }
 }
