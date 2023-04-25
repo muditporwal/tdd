@@ -42,4 +42,12 @@ public class ElementPlannerTest {
     assertTrue(planner.getCombinations().contains(elements50));
     assertEquals(50, planner.getCombinations().size());
   }
+
+  // Find out computation logic
+  // Empty catalog
+  // Wall too small
+  // One element fits wall
+  // Two elements fit the wall
+  // More than two elements fit the wall
+
 }
