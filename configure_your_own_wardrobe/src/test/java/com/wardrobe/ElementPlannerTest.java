@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ElementPlannerTest {
+class ElementPlannerTest {
 
   private ElementPlanner planner;
 
@@ -52,7 +52,7 @@ public class ElementPlannerTest {
   // More than two elements fit the wall
 
   @Test
-  public void testEmptyCatalog() {
+  void testEmptyCatalog() {
     Wall wall = new Wall(100);
     List<WardrobeElement> empty = new ArrayList<>();
     Dealer dealer = new Dealer(empty);
