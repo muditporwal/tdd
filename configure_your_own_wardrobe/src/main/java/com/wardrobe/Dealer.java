@@ -11,6 +11,10 @@ public class Dealer {
     this.catalog = initCatalog();
   }
 
+  public Dealer(List<WardrobeElement> catalog) {
+    this.catalog = catalog;
+  }
+
   private List<WardrobeElement> initCatalog() {
     List<WardrobeElement> newCatalog = new ArrayList<>();
     newCatalog.add(new WardrobeElement(50));

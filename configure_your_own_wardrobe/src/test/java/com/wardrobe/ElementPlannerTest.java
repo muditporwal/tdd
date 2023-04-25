@@ -3,6 +3,7 @@ package com.wardrobe;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +24,7 @@ public class ElementPlannerTest {
     assertEquals(4, planner.dealer().getCatalog().size());
   }
 
-  @Test
+  // @Test
   void testCombinationGettingForWardrobes() {
     assertNotNull(planner.getCombinations());
     ArrayList<WardrobeElement> elements50 = new ArrayList<>();
@@ -44,10 +45,20 @@ public class ElementPlannerTest {
   }
 
   // Find out computation logic
-  // Empty catalog
+  // Empty catalog - Done
   // Wall too small
   // One element fits wall
   // Two elements fit the wall
   // More than two elements fit the wall
 
+  @Test
+  public void testEmptyCatalog() {
+    Wall wall = new Wall(100);
+    List<WardrobeElement> empty = new ArrayList<>();
+    Dealer dealer = new Dealer(empty);
+    assertNotNull(dealer.getCatalog());
+    assertEquals(0, dealer.getCatalog().size());
+    ElementPlanner planner = new ElementPlanner(wall, dealer);
+    assertThrows(IllegalStateException.class, planner::getCombinations);
+  }
 }

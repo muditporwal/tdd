@@ -6,19 +6,24 @@ import java.util.List;
 public record ElementPlanner(Wall wall, Dealer dealer) {
 
   public List<List<WardrobeElement>> getCombinations() {
+    if (dealer.getCatalog() == null || dealer.getCatalog().size() == 0) {
+      throw new IllegalStateException("Dealer has no catalog");
+    }
+
     ArrayList<WardrobeElement> elements = new ArrayList<>();
     ArrayList<List<WardrobeElement>> consolidatedList = new ArrayList<>();
-    elements.add(new WardrobeElement(50));
-    elements.add(new WardrobeElement(50));
-    elements.add(new WardrobeElement(50));
-    elements.add(new WardrobeElement(50));
-    elements.add(new WardrobeElement(50));
-    consolidatedList.add(elements);
-    ArrayList<WardrobeElement> elements50n100 = new ArrayList<>();
-    elements50n100.add(new WardrobeElement(100));
-    elements50n100.add(new WardrobeElement(100));
-    elements50n100.add(new WardrobeElement(50));
-    consolidatedList.add(elements50n100);
+
+    //    elements.add(new WardrobeElement(50));
+    //    elements.add(new WardrobeElement(50));
+    //    elements.add(new WardrobeElement(50));
+    //    elements.add(new WardrobeElement(50));
+    //    elements.add(new WardrobeElement(50));
+    //    consolidatedList.add(elements);
+    //    ArrayList<WardrobeElement> elements50n100 = new ArrayList<>();
+    //    elements50n100.add(new WardrobeElement(100));
+    //    elements50n100.add(new WardrobeElement(100));
+    //    elements50n100.add(new WardrobeElement(50));
+    //    consolidatedList.add(elements50n100);
     return consolidatedList;
   }
 }
