@@ -25,7 +25,6 @@ class ElementPlannerTest {
   }
 
   // Find out computation logic
-  // Empty catalog - Done
   // Wall too small
   // One element fits wall
   // Two elements fit the wall
@@ -38,6 +37,15 @@ class ElementPlannerTest {
     Dealer dealer = new Dealer(empty);
     assertNotNull(dealer.getCatalog());
     assertEquals(0, dealer.getCatalog().size());
+    ElementPlanner planner = new ElementPlanner(wall, dealer);
+    assertThrows(IllegalStateException.class, planner::getCombinations);
+  }
+
+  @Test
+  void testWallTooSmall() {
+    Wall wall = new Wall(1);
+    Dealer dealer = new Dealer();
+    assertNotNull(dealer.getCatalog());
     ElementPlanner planner = new ElementPlanner(wall, dealer);
     assertThrows(IllegalStateException.class, planner::getCombinations);
   }
