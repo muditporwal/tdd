@@ -25,8 +25,6 @@ class ElementPlannerTest {
   }
 
   // Find out computation logic
-  // Wall too small
-  // One element fits wall
   // Two elements fit the wall
   // More than two elements fit the wall
 
