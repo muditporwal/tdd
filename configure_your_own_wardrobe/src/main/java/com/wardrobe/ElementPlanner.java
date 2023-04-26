@@ -8,6 +8,9 @@ public record ElementPlanner(Wall wall, Dealer dealer) {
     if (catalog == null || catalog.isEmpty()) {
       throw new IllegalStateException("Dealer has no catalog");
     }
+    if(wall.lengthInCms()<=0){
+      throw new IllegalStateException("Wall length is 0 or less");
+    }
     return ElementCombinations.getCombinations(catalog, wall.lengthInCms());
   }
 }

@@ -34,4 +34,12 @@ class ElementPlannerTest {
     ElementPlanner planner = new ElementPlanner(wall, dealer);
     assertThrows(IllegalStateException.class, planner::getCombinations, "Dealer has no catalog");
   }
+
+  @Test
+  void testInvalidWallLength() {
+    Wall wall = new Wall(0);
+    ElementPlanner planner = new ElementPlanner(wall, new Dealer());
+    assertThrows(
+        IllegalStateException.class, planner::getCombinations, "Wall length cannot be 0 or less");
+  }
 }
