@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public record ElementPlanner(Wall wall, Dealer dealer) {
-  public List<List<WardrobeElement>> getCombinations() {
+  public List<ElementCombinations> getCombinations() {
     List<WardrobeElement> catalog = dealer.getCatalog();
     if (catalog == null || catalog.isEmpty()) {
       throw new IllegalStateException("Dealer has no catalog");
     }
-    ArrayList<List<WardrobeElement>> combinations = new ArrayList<>();
+    List<ElementCombinations> combinations = new ArrayList();
+
     return combinations;
   }
 }

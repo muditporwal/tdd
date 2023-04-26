@@ -24,10 +24,6 @@ class ElementPlannerTest {
     assertEquals(4, planner.dealer().getCatalog().size());
   }
 
-  // Find out computation logic
-  // Two elements fit the wall
-  // More than two elements fit the wall
-
   @Test
   void testEmptyCatalog() {
     Wall wall = new Wall(100);
@@ -75,4 +71,9 @@ class ElementPlannerTest {
     ElementPlanner planner = new ElementPlanner(wall, dealer);
     assertEquals(1, planner.getCombinations().size());
   }
+
+  // Find out computation logic
+  // Two elements fit the wall
+  // More than two elements fit the wall
+
 }
