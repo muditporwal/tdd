@@ -5,10 +5,13 @@ import java.util.*;
 public record ElementCombinations(List<WardrobeElement> elements) {
   public static List<ElementCombinations> getCombinations(
       List<WardrobeElement> catalog, int length) {
+    // negative check
     if (length == 0) throw new IllegalArgumentException("length must not be 0 or negative");
+
     return catalog.stream()
         .map(
             wardrobeElement -> {
+              // initial condition
               if (wardrobeElement.lengthInCms() == length) {
                 List<ElementCombinations> elementCombinations = new ArrayList<>();
                 List<WardrobeElement> wardrobeElements = new ArrayList<>();
@@ -16,6 +19,7 @@ public record ElementCombinations(List<WardrobeElement> elements) {
                 elementCombinations.add(new ElementCombinations(wardrobeElements));
                 return elementCombinations;
               } else if (wardrobeElement.lengthInCms() < length) {
+                // base condition
                 int nlength = length - wardrobeElement.lengthInCms();
                 List<ElementCombinations> combinations =
                     ElementCombinations.getCombinations(catalog, nlength);
