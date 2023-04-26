@@ -12,12 +12,16 @@ public record ElementPlanner(Wall wall, Dealer dealer) {
     ArrayList<List<WardrobeElement>> combinations = new ArrayList<>();
     for (WardrobeElement wardrobeElement : catalog) {
       List<WardrobeElement> accumulator = new ArrayList<>();
-      if (wall.lengthInCms() < wardrobeElement.lengthInCms()) {
+      int remainingLenghth = wall.lengthInCms();
+      if (remainingLenghth < wardrobeElement.lengthInCms()) {
         continue;
       } else {
+        remainingLenghth = remainingLenghth - wardrobeElement.lengthInCms();
         accumulator.add(wardrobeElement);
       }
-      combinations.add(accumulator);
+      if (remainingLenghth == 0) {
+        combinations.add(accumulator);
+      }
     }
     return combinations;
   }
