@@ -73,11 +73,9 @@ class ElementPlannerTest {
     Dealer dealer = new Dealer();
     assertNotNull(dealer.getCatalog());
     ElementPlanner planner = new ElementPlanner(wall, dealer);
+    System.out.println(planner.getCombinations());
     assertEquals(1, planner.getCombinations().size());
   }
 
-  // Find out computation logic
-  // Two elements fit the wall
-  // More than two elements fit the wall
-
+  // remove duplicates
 }

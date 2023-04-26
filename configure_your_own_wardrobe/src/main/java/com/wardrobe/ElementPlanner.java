@@ -8,8 +8,6 @@ public record ElementPlanner(Wall wall, Dealer dealer) {
     if (catalog == null || catalog.isEmpty()) {
       throw new IllegalStateException("Dealer has no catalog");
     }
-    List<ElementCombinations> combinations =
-        ElementCombinations.getCombinations(catalog, wall.lengthInCms());
-    return combinations;
+    return ElementCombinations.getCombinations(catalog, wall.lengthInCms());
   }
 }
