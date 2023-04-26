@@ -10,16 +10,23 @@ public record ElementPlanner(Wall wall, Dealer dealer) {
       throw new IllegalStateException("Dealer has no catalog");
     }
     ArrayList<List<WardrobeElement>> combinations = new ArrayList<>();
+    return getCombinations(wall.lengthInCms(), combinations, catalog);
+  }
+
+  private ArrayList<List<WardrobeElement>> getCombinations(
+      int remainingLength,
+      ArrayList<List<WardrobeElement>> combinations,
+      List<WardrobeElement> catalog) {
+
     for (WardrobeElement wardrobeElement : catalog) {
       List<WardrobeElement> accumulator = new ArrayList<>();
-      int remainingLenghth = wall.lengthInCms();
-      if (remainingLenghth < wardrobeElement.lengthInCms()) {
+      if (remainingLength < wardrobeElement.lengthInCms()) {
         continue;
       } else {
-        remainingLenghth = remainingLenghth - wardrobeElement.lengthInCms();
+        remainingLength = remainingLength - wardrobeElement.lengthInCms();
         accumulator.add(wardrobeElement);
       }
-      if (remainingLenghth == 0) {
+      if (remainingLength == 0) {
         combinations.add(accumulator);
       }
     }
