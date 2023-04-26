@@ -66,4 +66,13 @@ class ElementPlannerTest {
     ElementPlanner planner = new ElementPlanner(wall, dealer);
     assertEquals(1, planner.getCombinations().size());
   }
+
+  @Test
+  void testTwoElementFitsWall() {
+    Wall wall = new Wall(125);
+    Dealer dealer = new Dealer();
+    assertNotNull(dealer.getCatalog());
+    ElementPlanner planner = new ElementPlanner(wall, dealer);
+    assertEquals(1, planner.getCombinations().size());
+  }
 }
