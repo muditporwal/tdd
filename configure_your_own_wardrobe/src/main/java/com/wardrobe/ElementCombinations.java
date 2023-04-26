@@ -3,6 +3,18 @@ package com.wardrobe;
 import java.util.*;
 
 public record ElementCombinations(List<WardrobeElement> elements) {
+
+  public static List<ElementCombinations> getCombinations(Wall wall, Dealer dealer) {
+    List<WardrobeElement> catalog = dealer.getCatalog();
+    if (catalog == null || catalog.isEmpty()) {
+      throw new IllegalStateException("Dealer has no catalog");
+    }
+    if (wall.lengthInCms() <= 0) {
+      throw new IllegalStateException("Wall length is 0 or less");
+    }
+    return ElementCombinations.getCombinations(dealer.getCatalog(), wall.lengthInCms());
+  }
+
   public static List<ElementCombinations> getCombinations(
       List<WardrobeElement> catalog, int length) {
     // negative check

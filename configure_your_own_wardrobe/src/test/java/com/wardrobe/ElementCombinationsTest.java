@@ -5,17 +5,20 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 class ElementCombinationsTest {
+
+  private static Executable getCombinations(Wall wall, Dealer dealer) {
+    return () -> ElementCombinations.getCombinations(wall, dealer);
+  }
 
   @Test
   void testWallTooSmall() {
     Wall wall = new Wall(1);
     Dealer dealer = new Dealer();
-    assertNotNull(dealer.getCatalog());
-    ElementPlanner planner = new ElementPlanner(wall, dealer);
-    assertThrows(IllegalStateException.class, planner::getCombinations, "Wall is too small");
-    // TODO review if illeagal state is what we want to throw
+    assertThrows(IllegalStateException.class, getCombinations(wall, dealer), "Wall is too small");
+    // TODO review if illegal state is what we want to throw
   }
 
   // One element fits wall
@@ -25,10 +28,10 @@ class ElementCombinationsTest {
     List<WardrobeElement> one = new ArrayList<>();
     one.add(new WardrobeElement(10));
     Dealer dealer = new Dealer(one);
-    assertNotNull(dealer.getCatalog());
-    assertEquals(1, dealer.getCatalog().size());
-    ElementPlanner planner = new ElementPlanner(wall, dealer);
-    assertEquals(1, planner.getCombinations().size());
+    List<WardrobeElement> catalog = dealer.getCatalog();
+    assertNotNull(catalog);
+    assertEquals(1, catalog.size());
+    assertEquals(1, ElementCombinations.getCombinations(wall, dealer).size());
   }
 
   @Test
@@ -36,8 +39,8 @@ class ElementCombinationsTest {
     Wall wall = new Wall(75);
     Dealer dealer = new Dealer();
     assertNotNull(dealer.getCatalog());
-    ElementPlanner planner = new ElementPlanner(wall, dealer);
-    assertEquals(1, planner.getCombinations().size());
+
+    assertEquals(1, ElementCombinations.getCombinations(wall, dealer).size());
   }
 
   @Test
@@ -45,9 +48,7 @@ class ElementCombinationsTest {
     Wall wall = new Wall(125);
     Dealer dealer = new Dealer();
     assertNotNull(dealer.getCatalog());
-    ElementPlanner planner = new ElementPlanner(wall, dealer);
-    System.out.println(planner.getCombinations());
-    assertEquals(1, planner.getCombinations().size());
+    assertEquals(1, ElementCombinations.getCombinations(wall, dealer).size());
   }
 
   // remove duplicates
