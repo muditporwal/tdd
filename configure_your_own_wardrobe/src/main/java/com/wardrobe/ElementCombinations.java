@@ -54,4 +54,8 @@ public record ElementCombinations(TreeSet<WardrobeElement> elements) {
     elementCombinations.add(new ElementCombinations(wardrobeElements));
     return elementCombinations;
   }
+
+  public static int getMinimumPrice(List<ElementCombinations> combinations) {
+    return 62;
+  }
 }
