@@ -20,5 +20,7 @@ class WardrobeElementTest {
     assertEquals(59, element50.costInUSD());
     WardrobeElement element75 = new WardrobeElement(75);
     assertEquals(62, element75.costInUSD());
+    WardrobeElement element100 = new WardrobeElement(100);
+    assertEquals(90, element100.costInUSD());
   }
 }

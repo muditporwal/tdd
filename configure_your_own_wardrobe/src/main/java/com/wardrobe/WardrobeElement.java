@@ -1,9 +1,14 @@
 package com.wardrobe;
 
+import java.util.HashMap;
+
 public record WardrobeElement(int lengthInCms) {
   public int costInUSD() {
-    if (lengthInCms == 50) return 59;
-    else if (lengthInCms == 75) return 62;
-    return 100;
+    HashMap<Integer, Integer> costMap = new HashMap<Integer, Integer>();
+    costMap.put(50, 59);
+    costMap.put(75, 62);
+    costMap.put(100, 90);
+    costMap.put(120, 111);
+    return costMap.getOrDefault(lengthInCms, 1000);
   }
 }
