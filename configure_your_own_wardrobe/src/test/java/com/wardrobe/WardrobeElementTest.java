@@ -18,5 +18,7 @@ class WardrobeElementTest {
   void checkWardrobeElementWithPrice() {
     WardrobeElement element50 = new WardrobeElement(50);
     assertEquals(59, element50.costInUSD());
+    WardrobeElement element75 = new WardrobeElement(75);
+    assertEquals(62, element75.costInUSD());
   }
 }
