@@ -14,5 +14,9 @@ class WardrobeElementTest {
 
   /* - Catalog does not have the number of items */
   // Catalg does not have price
-
+  @Test
+  void checkWardrobeElementWithPrice() {
+    WardrobeElement element50 = new WardrobeElement(50);
+    assertEquals(59, element50.costInUSD());
+  }
 }
