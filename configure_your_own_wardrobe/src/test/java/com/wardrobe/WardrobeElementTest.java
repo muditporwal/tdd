@@ -12,5 +12,7 @@ class WardrobeElementTest {
     assertEquals(50, element50.lengthInCms());
   }
 
-  /** - Catalog does not have the number of items - Catalg does not have price * */
+  /* - Catalog does not have the number of items */
+  // Catalg does not have price
+
 }
