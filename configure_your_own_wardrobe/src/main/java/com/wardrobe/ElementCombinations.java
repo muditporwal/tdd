@@ -2,7 +2,7 @@ package com.wardrobe;
 
 import java.util.*;
 
-public record ElementCombinations(List<WardrobeElement> elements) {
+public record ElementCombinations(TreeSet<WardrobeElement> elements) {
 
   public static List<ElementCombinations> getCombinations(Wall wall, Dealer dealer) {
     List<WardrobeElement> catalog = dealer.getCatalog();
@@ -33,6 +33,7 @@ public record ElementCombinations(List<WardrobeElement> elements) {
             })
         .filter(Objects::nonNull)
         .flatMap(Collection::stream)
+        .distinct()
         .toList();
   }
 
@@ -47,7 +48,8 @@ public record ElementCombinations(List<WardrobeElement> elements) {
   private static List<ElementCombinations> elementCombinationsForMatchedLength(
       WardrobeElement wardrobeElement) {
     List<ElementCombinations> elementCombinations = new ArrayList<>();
-    List<WardrobeElement> wardrobeElements = new ArrayList<>();
+    TreeSet<WardrobeElement> wardrobeElements =
+        new TreeSet<>(Comparator.comparingInt(WardrobeElement::lengthInCms));
     wardrobeElements.add(wardrobeElement);
     elementCombinations.add(new ElementCombinations(wardrobeElements));
     return elementCombinations;
