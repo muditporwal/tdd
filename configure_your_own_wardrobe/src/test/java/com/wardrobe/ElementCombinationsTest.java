@@ -38,8 +38,7 @@ class ElementCombinationsTest {
   void testWallTooSmall() {
     Wall wall = new Wall(1);
     Dealer dealer = new Dealer();
-    assertThrows(IllegalStateException.class, getCombinations(wall, dealer), "Wall is too small");
-    // TODO review if illegal state is what we want to throw
+    assertEquals(0, ElementCombinations.getCombinations(wall, dealer).size());
   }
 
   // One element fits wall
