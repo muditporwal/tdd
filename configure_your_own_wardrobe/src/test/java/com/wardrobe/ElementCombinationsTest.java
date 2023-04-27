@@ -14,6 +14,27 @@ class ElementCombinationsTest {
   }
 
   @Test
+  void testEmptyCatalog() {
+    Wall wall = new Wall(100);
+    List<WardrobeElement> empty = new ArrayList<>();
+    Dealer dealer = new Dealer(empty);
+    assertNotNull(dealer.getCatalog());
+    assertEquals(0, dealer.getCatalog().size());
+    assertThrows(
+        IllegalStateException.class, getCombinations(wall, dealer), "Dealer has no catalog");
+  }
+
+  @Test
+  void testInvalidWallLength() {
+    Wall wall = new Wall(0);
+    Dealer dealer = new Dealer();
+    assertThrows(
+        IllegalStateException.class,
+        getCombinations(wall, dealer),
+        "Wall length cannot be 0 or less");
+  }
+
+  @Test
   void testWallTooSmall() {
     Wall wall = new Wall(1);
     Dealer dealer = new Dealer();

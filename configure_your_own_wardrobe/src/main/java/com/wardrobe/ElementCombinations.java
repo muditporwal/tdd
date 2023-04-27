@@ -23,27 +23,33 @@ public record ElementCombinations(List<WardrobeElement> elements) {
     return catalog.stream()
         .map(
             wardrobeElement -> {
-              // initial condition
               if (wardrobeElement.lengthInCms() == length) {
-                List<ElementCombinations> elementCombinations = new ArrayList<>();
-                List<WardrobeElement> wardrobeElements = new ArrayList<>();
-                wardrobeElements.add(wardrobeElement);
-                elementCombinations.add(new ElementCombinations(wardrobeElements));
-                return elementCombinations;
+                return elementCombinationsForMatchedLength(wardrobeElement);
               } else if (wardrobeElement.lengthInCms() < length) {
-                // base condition
-                int nlength = length - wardrobeElement.lengthInCms();
-                List<ElementCombinations> combinations =
-                    ElementCombinations.getCombinations(catalog, nlength);
-                combinations.forEach(
-                    combinationsLocal -> combinationsLocal.elements.add(wardrobeElement));
-                return combinations;
+                return elementCombinationsForMoreWallSpace(catalog, length, wardrobeElement);
               } else {
-                return null;
+                return null; // No elementCombination for not matching length
               }
             })
         .filter(Objects::nonNull)
         .flatMap(Collection::stream)
         .toList();
+  }
+
+  private static List<ElementCombinations> elementCombinationsForMoreWallSpace(
+      List<WardrobeElement> catalog, int length, WardrobeElement wardrobeElement) {
+    int nlength = length - wardrobeElement.lengthInCms();
+    List<ElementCombinations> combinations = ElementCombinations.getCombinations(catalog, nlength);
+    combinations.forEach(combinationsLocal -> combinationsLocal.elements.add(wardrobeElement));
+    return combinations;
+  }
+
+  private static List<ElementCombinations> elementCombinationsForMatchedLength(
+      WardrobeElement wardrobeElement) {
+    List<ElementCombinations> elementCombinations = new ArrayList<>();
+    List<WardrobeElement> wardrobeElements = new ArrayList<>();
+    wardrobeElements.add(wardrobeElement);
+    elementCombinations.add(new ElementCombinations(wardrobeElements));
+    return elementCombinations;
   }
 }
