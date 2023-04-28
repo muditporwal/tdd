@@ -56,6 +56,14 @@ public record ElementCombinations(TreeSet<WardrobeElement> elements) {
   }
 
   public static int getMinimumPrice(List<ElementCombinations> combinations) {
-    return 62;
+    return getMinimumPriceForCombination(combinations.get(0));
+  }
+
+  private static int getMinimumPriceForCombination(ElementCombinations elementCombinations) {
+    Optional<Integer> reduce =
+        elementCombinations.elements().stream()
+            .map(WardrobeElement::costInUSD)
+            .reduce(Integer::sum);
+    return reduce.orElse(1000);
   }
 }
