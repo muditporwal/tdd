@@ -73,12 +73,32 @@ class ElementCombinationsTest {
 
   // remove duplicates
   @Test
-  void testCheapestOptionForOneOption() {
+  void testCheapestOptionForOneOptionWithOneElement() {
     Wall wall = new Wall(75);
     Dealer dealer = new Dealer();
     assertNotNull(dealer.getCatalog());
     List<ElementCombinations> combinations = ElementCombinations.getCombinations(wall, dealer);
     assertEquals(1, combinations.size());
     assertEquals(62, ElementCombinations.getMinimumPrice(combinations));
+  }
+
+  @Test
+  void testCheapestOptionForOneOptionWithTwoElements() {
+    Wall wall = new Wall(125);
+    Dealer dealer = new Dealer();
+    assertNotNull(dealer.getCatalog());
+    List<ElementCombinations> combinations = ElementCombinations.getCombinations(wall, dealer);
+    assertEquals(1, combinations.size());
+    assertEquals(121, ElementCombinations.getMinimumPrice(combinations));
+  }
+
+  @Test
+  void testCheapestOptionForTwoOptions() {
+    Wall wall = new Wall(100);
+    Dealer dealer = new Dealer();
+    assertNotNull(dealer.getCatalog());
+    List<ElementCombinations> combinations = ElementCombinations.getCombinations(wall, dealer);
+    assertEquals(2, combinations.size());
+    assertEquals(90, ElementCombinations.getMinimumPrice(combinations));
   }
 }
