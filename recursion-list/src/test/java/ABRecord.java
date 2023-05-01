@@ -22,8 +22,14 @@ public class ABRecord {
       if (a >= 2 * b) {
         ABRecord record = new ABRecord((a - 2 * b), b);
         return record.compute();
+      } else {
+        if (b >= 2 * a) {
+          ABRecord record = new ABRecord(a, (b - 2 * a));
+          return record.compute();
+        } else {
+          return this;
+        }
       }
     }
-    return null;
   }
 }

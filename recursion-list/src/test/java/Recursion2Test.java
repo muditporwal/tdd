@@ -40,4 +40,12 @@ public class Recursion2Test {
     assertEquals(6, b.getA());
     assertEquals(0, b.getB());
   }
+
+  @Test
+  void testFourthCase() {
+    ABRecord a = new ABRecord(3, 4);
+    ABRecord b = a.compute();
+    assertEquals(3, b.getA());
+    assertEquals(4, b.getB());
+  }
 }
