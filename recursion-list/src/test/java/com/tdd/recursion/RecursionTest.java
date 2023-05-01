@@ -25,6 +25,13 @@ public class RecursionTest {
   }
 
   // Recursion
+  // Tail Recursion or Head Recursion
+  // For Tail Recursion need an accumulator to be passed into the function
+  // For Head Recursion can benefit if using memoization
+  // In this case memoization depends on data but I do not see why we should memoize
+  // Also head recursion will need breaking the list into sublists
+  // Try 1 : Head Recursion [head | sublist] = list
+  // Try 2 : Tail recursion [accumlator] - Add to accumulator when ends
   @Test
   void testRecursiveCaseTwoItemListReversal() {
     List<String> low = new ArrayList<>();
