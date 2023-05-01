@@ -18,6 +18,11 @@ public class ABRecord {
   public ABRecord compute() {
     if (a == 0 || b == 0) {
       return this;
+    } else {
+      if (a >= 2 * b) {
+        ABRecord record = new ABRecord((a - 2 * b), b);
+        return record.compute();
+      }
     }
     return null;
   }

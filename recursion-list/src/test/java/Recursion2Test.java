@@ -27,8 +27,17 @@ public class Recursion2Test {
 
   @Test
   void testSecondCase() {
-    ABRecord a = new ABRecord(12, 14);
+    ABRecord a = new ABRecord(12, 6);
     ABRecord b = a.compute();
-    assertTrue(b.getA() == 0 || b.getB() == 0);
+    assertEquals(0, b.getA());
+    assertEquals(6, b.getB());
+  }
+
+  @Test
+  void testThirdCase() {
+    ABRecord a = new ABRecord(6, 12);
+    ABRecord b = a.compute();
+    assertEquals(6, b.getA());
+    assertEquals(0, b.getB());
   }
 }
