@@ -7,7 +7,7 @@ public class Recursion {
     if (low.size() <= 1) return low;
     else {
       String head = low.get(0);
-      List<String> tail = low.subList(1, low.size() - 1);
+      List<String> tail = low.subList(1, low.size());
       reverse(tail).add(head);
       return tail;
     }
