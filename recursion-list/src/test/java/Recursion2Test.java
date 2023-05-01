@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class Recursion2Test {
+class Recursion2Test {
 
   /*
       i) If a = 0 or b = 0, return [a,b]. Otherwise, go to step (ii);
