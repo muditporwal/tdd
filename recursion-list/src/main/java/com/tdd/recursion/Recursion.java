@@ -1,7 +1,10 @@
 package com.tdd.recursion;
+
 import java.util.List;
 
-public class Recursion {
+class Recursion {
+  private Recursion() {}
+
   public static List<String> reverse(List<String> low) {
     if (low.size() <= 1) return low;
     else {
