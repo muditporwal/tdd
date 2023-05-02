@@ -9,6 +9,11 @@ public class SumOddDigits {
   }
 
   public int[] getDigits() {
+    if (number / 10 == 0) {
+      int[] ints = new int[1];
+      ints[0] = number;
+      return ints;
+    }
     return null;
   }
 }
