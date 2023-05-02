@@ -19,7 +19,9 @@ public class SumOddDigits {
   }
 
   private static List<Integer> getBaseCase(int number) {
-    return new ArrayList<>(number);
+    List<Integer> digits = new ArrayList<>();
+    digits.add(number);
+    return digits;
   }
 
   private static boolean isBaseCase(int number) {
