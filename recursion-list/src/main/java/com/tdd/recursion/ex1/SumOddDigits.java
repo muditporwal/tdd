@@ -8,21 +8,20 @@ public class SumOddDigits {
     this.number = number;
   }
 
-  public int[] getDigits() {
-    if (isBaseCase()) {
-      return getBaseCase();
-    } else {
+  public static int[] getDigits(int number) {
+    if (isBaseCase(number)) return getBaseCase(number);
+     else {
       return null;
     }
   }
 
-  private int[] getBaseCase() {
+  private static int[] getBaseCase(int number) {
     int[] ints = new int[1];
     ints[0] = number;
     return ints;
   }
 
-  private boolean isBaseCase() {
+  private static boolean isBaseCase(int number) {
     return number / 10 == 0;
   }
 }
