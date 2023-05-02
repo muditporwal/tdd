@@ -9,11 +9,20 @@ public class SumOddDigits {
   }
 
   public int[] getDigits() {
-    if (number / 10 == 0) {
-      int[] ints = new int[1];
-      ints[0] = number;
-      return ints;
+    if (isBaseCase()) {
+      return getBaseCase();
+    } else {
+      return null;
     }
-    return null;
+  }
+
+  private int[] getBaseCase() {
+    int[] ints = new int[1];
+    ints[0] = number;
+    return ints;
+  }
+
+  private boolean isBaseCase() {
+    return number / 10 == 0;
   }
 }

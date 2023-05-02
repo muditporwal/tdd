@@ -13,15 +13,6 @@ class SumOddDigitsTest {
   }
 
   @Test
-  void testConversionToDigits() {
-    SumOddDigits sod = new SumOddDigits(235);
-    int[] digits = sod.getDigits();
-    assertEquals(5, digits[0]);
-    assertEquals(3, digits[1]);
-    assertEquals(2, digits[2]);
-  }
-
-  @Test
   void testConversionToDigits_OneDigit() {
     SumOddDigits sod = new SumOddDigits(2);
     int[] digits = sod.getDigits();
@@ -29,5 +20,14 @@ class SumOddDigitsTest {
     sod = new SumOddDigits(5);
     digits = sod.getDigits();
     assertEquals(5, digits[0]);
+  }
+
+  @Test
+  void testConversionToDigits() {
+    SumOddDigits sod = new SumOddDigits(235);
+    int[] digits = sod.getDigits();
+    assertEquals(5, digits[0]);
+    assertEquals(3, digits[1]);
+    assertEquals(2, digits[2]);
   }
 }
