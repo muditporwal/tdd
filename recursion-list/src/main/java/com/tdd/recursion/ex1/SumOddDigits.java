@@ -1,5 +1,8 @@
 package com.tdd.recursion.ex1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SumOddDigits {
 
   private final int number;
@@ -8,17 +11,15 @@ public class SumOddDigits {
     this.number = number;
   }
 
-  public static int[] getDigits(int number) {
+  public static List<Integer> getDigits(int number) {
     if (isBaseCase(number)) return getBaseCase(number);
-     else {
+    else {
       return null;
     }
   }
 
-  private static int[] getBaseCase(int number) {
-    int[] ints = new int[1];
-    ints[0] = number;
-    return ints;
+  private static List<Integer> getBaseCase(int number) {
+    return new ArrayList<>(number);
   }
 
   private static boolean isBaseCase(int number) {
