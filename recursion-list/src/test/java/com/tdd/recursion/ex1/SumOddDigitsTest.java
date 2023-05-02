@@ -26,5 +26,8 @@ class SumOddDigitsTest {
     SumOddDigits sod = new SumOddDigits(2);
     int[] digits = sod.getDigits();
     assertEquals(2, digits[0]);
+    sod = new SumOddDigits(5);
+    digits = sod.getDigits();
+    assertEquals(5, digits[0]);
   }
 }
