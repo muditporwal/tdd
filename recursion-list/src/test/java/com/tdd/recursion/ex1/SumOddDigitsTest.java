@@ -9,7 +9,7 @@ class SumOddDigitsTest {
 
   @Test
   void testInitialization() {
-    SumOddDigits sod = new SumOddDigits(235);
+    SumOddDigits sod = new SumOddDigits();
     assertNotNull(sod);
   }
 

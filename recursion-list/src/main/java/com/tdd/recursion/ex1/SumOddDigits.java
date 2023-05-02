@@ -5,20 +5,22 @@ import java.util.List;
 
 public class SumOddDigits {
 
-  private final int number;
-
-  public SumOddDigits(int number) {
-    this.number = number;
-  }
-
   public static List<Integer> getDigits(int number) {
-    if (isBaseCase(number)) return getBaseCase(number);
+    if (isBaseCase(number)) return baseCase(number);
     else {
-      return null;
+      return recursiveCase(number);
     }
   }
 
-  private static List<Integer> getBaseCase(int number) {
+  private static List<Integer> recursiveCase(int number) {
+    int head = number / 10;
+    int tail = number % 10;
+    List<Integer> digits = getDigits(tail);
+    digits.addAll(getDigits(head));
+    return digits;
+  }
+
+  private static List<Integer> baseCase(int number) {
     List<Integer> digits = new ArrayList<>();
     digits.add(number);
     return digits;
