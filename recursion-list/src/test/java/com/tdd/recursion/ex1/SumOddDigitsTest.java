@@ -20,4 +20,11 @@ class SumOddDigitsTest {
     assertEquals(3, digits[1]);
     assertEquals(2, digits[2]);
   }
+
+  @Test
+  void testConversionToDigits_OneDigit() {
+    SumOddDigits sod = new SumOddDigits(2);
+    int[] digits = sod.getDigits();
+    assertEquals(2, digits[0]);
+  }
 }
