@@ -5,12 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import org.junit.jupiter.api.Test;
 
-public class NinjaChirpTest {
-
-  @Test
-  void initializeNinjaChirp() {
-    NinjaChirp ninja = new NinjaChirp();
-  }
+class NinjaChirpTest {
 
   @Test
   void testIfNinjaCanKeepQuiet() {
