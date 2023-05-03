@@ -41,6 +41,11 @@ public class SumOddDigits {
   }
 
   public int getSumOfOddDigits() {
-    return 0;
+    List<Integer> digits = getDigits(this.number);
+    int sum = 0;
+    for (int i = 0; i < digits.size(); i = i + 2) {
+      sum = sum + digits.get(i);
+    }
+    return sum;
   }
 }

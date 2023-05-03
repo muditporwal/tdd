@@ -37,5 +37,8 @@ class SumOddDigitsTest {
     SumOddDigits sod = new SumOddDigits(2);
     int sum = sod.getSumOfOddDigits();
     assertEquals(2, sum);
+    sod = new SumOddDigits(235);
+    sum = sod.getSumOfOddDigits();
+    assertEquals(7, sum);
   }
 }
