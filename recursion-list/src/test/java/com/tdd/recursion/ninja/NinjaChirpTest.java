@@ -13,6 +13,13 @@ public class NinjaChirpTest {
   }
 
   @Test
+  void testIfNinjaCanKeepQuiet() {
+    NinjaChirp ninja = new NinjaChirp();
+    String chirpCode = ninja.canChirp(0);
+    assertEquals("", chirpCode);
+  }
+
+  @Test
   void testIfNinjaCanChirp() {
     NinjaChirp ninja = new NinjaChirp();
     String chirpCode = ninja.canChirp(1);
@@ -23,5 +30,13 @@ public class NinjaChirpTest {
   void testIfNinjaUnderstandsOddRequests() {
     NinjaChirp ninja = new NinjaChirp();
     assertThrowsExactly(IllegalArgumentException.class, () -> ninja.canChirp(-1));
+  }
+
+  @Test
+  void testIfNinjaCanTalkChirp() {
+    NinjaChirp ninja = new NinjaChirp();
+    String chirpCode = ninja.canChirp(3);
+
+    assertEquals("chirp-chirp-chirp", chirpCode);
   }
 }
