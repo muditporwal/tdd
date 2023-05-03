@@ -5,6 +5,12 @@ import java.util.List;
 
 public class SumOddDigits {
 
+  private final int number;
+
+  public SumOddDigits(int number) {
+    this.number = number;
+  }
+
   public static List<Integer> getDigits(int number) {
     if (isBaseCase(number)) return baseCase(number);
     else {
@@ -28,5 +34,13 @@ public class SumOddDigits {
 
   private static boolean isBaseCase(int number) {
     return number / 10 == 0;
+  }
+
+  public int getNumber() {
+    return number;
+  }
+
+  public int getSumOfOddDigits() {
+    return 0;
   }
 }

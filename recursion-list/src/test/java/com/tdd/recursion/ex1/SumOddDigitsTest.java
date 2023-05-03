@@ -9,8 +9,9 @@ class SumOddDigitsTest {
 
   @Test
   void testInitialization() {
-    SumOddDigits sod = new SumOddDigits();
+    SumOddDigits sod = new SumOddDigits(0);
     assertNotNull(sod);
+    assertEquals(0, sod.getNumber());
   }
 
   @Test
@@ -29,5 +30,12 @@ class SumOddDigitsTest {
     assert digits != null;
     assertEquals(5, digits.get(0));
     assertEquals(3, digits.get(1));
+  }
+
+  @Test
+  void testSumOfOddDigits() {
+    SumOddDigits sod = new SumOddDigits(2);
+    int sum = sod.getSumOfOddDigits();
+    assertEquals(2, sum);
   }
 }
