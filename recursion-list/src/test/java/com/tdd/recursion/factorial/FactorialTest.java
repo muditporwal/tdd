@@ -30,9 +30,9 @@ public class FactorialTest {
     assertThrowsExactly(IllegalArgumentException.class, () -> Factorial.get(-1));
   }
 
-  //
-  //  @Test
-  //    void whenNumberIsAPositiveInteger(){
-  //
-  //  }
+  @Test
+  void whenNumberIsAPositiveInteger() {
+    assertEquals(2, Factorial.get(2));
+    assertEquals(6, Factorial.get(3));
+  }
 }
