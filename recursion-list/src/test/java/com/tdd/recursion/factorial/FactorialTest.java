@@ -15,30 +15,30 @@ public class FactorialTest {
 
   @Test
   void whenNumberIsABigNumber() {
-    assertEquals(109641728, Factorial.get(19));
-    //Optimize takes 23 ms
+    assertEquals(109641728, Factorial.compute(19));
+    // Optimize takes 23 ms
   }
 
   @Test
   void whenFactorialOf0Return1() {
-    int result = Factorial.get(0);
+    int result = Factorial.compute(0);
     assertEquals(1, result);
   }
 
   @Test
   void whenFactorialOf1Return1() {
-    int result = Factorial.get(1);
+    int result = Factorial.compute(1);
     assertEquals(1, result);
   }
 
   @Test
   void whenFactorialOfANegativeNumberIsRequestedThrowException() {
-    assertThrowsExactly(IllegalArgumentException.class, () -> Factorial.get(-1));
+    assertThrowsExactly(IllegalArgumentException.class, () -> Factorial.compute(-1));
   }
 
   @Test
   void whenNumberIsAPositiveInteger() {
-    assertEquals(2, Factorial.get(2));
-    assertEquals(6, Factorial.get(3));
+    assertEquals(2, Factorial.compute(2));
+    assertEquals(6, Factorial.compute(3));
   }
 }
