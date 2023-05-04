@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import org.junit.jupiter.api.Test;
 
-public class FactorialTest {
+class FactorialTest {
 
   /*Spec :
   The code is a recursive attempt in calculating the result of a factorial function.
