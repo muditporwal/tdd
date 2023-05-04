@@ -14,6 +14,11 @@ public class FactorialTest {
    */
 
   @Test
+  void whenNumberIsABigNumber() {
+    assertEquals(0, Factorial.get(5000));
+  }
+
+  @Test
   void whenFactorialOf0Return1() {
     int result = Factorial.get(0);
     assertEquals(1, result);
@@ -35,8 +40,4 @@ public class FactorialTest {
     assertEquals(2, Factorial.get(2));
     assertEquals(6, Factorial.get(3));
   }
-
-  //  @Test whenNumberIsABigNumber(){
-  //
-  //  }
 }
