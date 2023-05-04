@@ -5,6 +5,8 @@ public class Factorial {
     if (i < 0)
       throw new IllegalArgumentException("Factorial cannot be calculated for negative numbers");
     if (i == 0 || i == 1) return 1;
-    return 0;
+    else {
+      return i * get(i - 1);
+    }
   }
 }
