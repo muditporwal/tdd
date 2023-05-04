@@ -15,7 +15,8 @@ public class FactorialTest {
 
   @Test
   void whenNumberIsABigNumber() {
-    assertEquals(0, Factorial.get(5000));
+    assertEquals(109641728, Factorial.get(19));
+    //Optimize takes 23 ms
   }
 
   @Test
