@@ -1,5 +1,7 @@
 package com.tdd.recursion.factorial;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class FactorialTest {
@@ -11,7 +13,14 @@ public class FactorialTest {
    */
 
   @Test
-  void initFactorial() {
-    Factorial fact = new Factorial();
+  void whenFactorialOf0Return1() {
+    int result = Factorial.get(0);
+    assertEquals(1, result);
+  }
+
+  @Test
+  void whenFactorialOf1Return1() {
+    int result = Factorial.get(1);
+    assertEquals(1, result);
   }
 }
