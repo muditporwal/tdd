@@ -1,6 +1,7 @@
 package com.tdd.recursion.factorial;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import org.junit.jupiter.api.Test;
 
@@ -23,4 +24,15 @@ public class FactorialTest {
     int result = Factorial.get(1);
     assertEquals(1, result);
   }
+
+  @Test
+  void whenFactorialOfANegativeNumberIsRequestedThrowException() {
+    assertThrowsExactly(IllegalArgumentException.class, () -> Factorial.get(-1));
+  }
+
+  //
+  //  @Test
+  //    void whenNumberIsAPositiveInteger(){
+  //
+  //  }
 }
