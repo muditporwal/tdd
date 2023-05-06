@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 
-public class TestFibonacci {
+class TestFibonacci {
   @Test
   void testFibonacciForSeedValues() {
     BigInteger a = Fibanacci.numberAtIndex(1);
@@ -29,8 +29,8 @@ public class TestFibonacci {
 
   @Test
   void testFibonacciForBigIntegerValues() {
-    BigInteger a = Fibanacci.numberAtIndex(30);
+    BigInteger a = Fibanacci.numberAtIndex(50);
     // TODO: Implement memoization keeps running
-    assertEquals(BigInteger.TWO, a);
+    assertEquals(BigInteger.valueOf(12586269025L), a);
   }
 }
