@@ -25,4 +25,11 @@ public class TestFibonacci {
     int a = Fibanacci.numberAtIndex(3);
     assertEquals(2, a);
   }
+
+  @Test
+  void testFibonacciForBigIntegerValues() {
+    int a = Fibanacci.numberAtIndex(30);
+    // TODO: Implement memoization
+    assertEquals(2, a);
+  }
 }
