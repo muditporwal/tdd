@@ -18,6 +18,7 @@ public class Fibanacci {
         BigInteger im1 = numberAtIndex(i - 1);
         BigInteger im2 = numberAtIndex(i - 2);
         fibAtIndex = im1.add(im2);
+        states.put(i, fibAtIndex);
       }
       return fibAtIndex;
     }
