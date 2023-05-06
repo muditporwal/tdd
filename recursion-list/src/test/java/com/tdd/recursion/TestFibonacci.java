@@ -28,8 +28,8 @@ public class TestFibonacci {
 
   @Test
   void testFibonacciForBigIntegerValues() {
-    int a = Fibanacci.numberAtIndex(30);
-    // TODO: Implement memoization
+    int a = Fibanacci.numberAtIndex(50);
+    // TODO: Implement memoization keeps running
     assertEquals(2, a);
   }
 }
