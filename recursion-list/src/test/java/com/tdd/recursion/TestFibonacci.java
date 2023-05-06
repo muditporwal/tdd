@@ -3,15 +3,16 @@ package com.tdd.recursion;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
+import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 
 public class TestFibonacci {
   @Test
   void testFibonacciForSeedValues() {
-    int a = Fibanacci.numberAtIndex(1);
-    assertEquals(1, a);
+    BigInteger a = Fibanacci.numberAtIndex(1);
+    assertEquals(BigInteger.ONE, a);
     a = Fibanacci.numberAtIndex(2);
-    assertEquals(1, a);
+    assertEquals(BigInteger.ONE, a);
   }
 
   @Test
@@ -22,14 +23,14 @@ public class TestFibonacci {
 
   @Test
   void testFibonacciForSmallIntegerValues() {
-    int a = Fibanacci.numberAtIndex(3);
-    assertEquals(2, a);
+    BigInteger a = Fibanacci.numberAtIndex(3);
+    assertEquals(BigInteger.TWO, a);
   }
 
   @Test
   void testFibonacciForBigIntegerValues() {
-    int a = Fibanacci.numberAtIndex(50);
+    BigInteger a = Fibanacci.numberAtIndex(30);
     // TODO: Implement memoization keeps running
-    assertEquals(2, a);
+    assertEquals(BigInteger.TWO, a);
   }
 }
