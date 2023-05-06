@@ -9,5 +9,7 @@ public class TestFibonacci {
   void testFibonacciForSeedValues() {
     int a = Fibanacci.numberAtIndex(1);
     assertEquals(1, a);
+    a = Fibanacci.numberAtIndex(2);
+    assertEquals(1, a);
   }
 }
