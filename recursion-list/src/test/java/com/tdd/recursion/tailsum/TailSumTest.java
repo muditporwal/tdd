@@ -10,7 +10,11 @@ class TailSumTest {
   void testSmallValue() {
     BigInteger sum = TailSum.sum(BigInteger.ONE);
     assertEquals(BigInteger.ONE, sum);
-    sum = TailSum.sum(BigInteger.TWO);
+  }
+
+  @Test
+  void testRecursion() {
+    BigInteger sum = TailSum.sum(BigInteger.TWO);
     assertEquals(BigInteger.valueOf(3), sum);
   }
 }
