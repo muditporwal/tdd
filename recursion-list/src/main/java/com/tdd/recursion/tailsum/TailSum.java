@@ -1,3 +1,9 @@
 package com.tdd.recursion.tailsum;
 
-class TailSum {}
+import java.math.BigInteger;
+
+class TailSum {
+  public static BigInteger sum(BigInteger val) {
+    return val;
+  }
+}
