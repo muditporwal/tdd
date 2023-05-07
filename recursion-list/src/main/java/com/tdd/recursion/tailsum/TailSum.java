@@ -10,7 +10,12 @@ class TailSum {
   }
 
   private static BigInteger sum(BigInteger acc, BigInteger val) {
-    return acc.add(val);
+    BigInteger add = acc.add(val);
+    if (BigInteger.ZERO.compareTo(val) < 0) {
+      val = val.subtract(BigInteger.ONE);
+      return sum(add, val);
+    }
+    return add;
   }
 
   public static void main(String[] args) {
