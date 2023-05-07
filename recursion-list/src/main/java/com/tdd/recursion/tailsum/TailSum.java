@@ -4,6 +4,8 @@ import java.math.BigInteger;
 
 class TailSum {
   public static BigInteger sum(BigInteger val) {
+    if (BigInteger.ZERO.compareTo(val) > 0)
+      throw new IllegalArgumentException("Number cannot be negative for a sum till zero");
     return sum(BigInteger.ZERO, val);
   }
 
