@@ -7,8 +7,13 @@ class TailSum {
     return sum(BigInteger.ZERO, val);
   }
 
-  public static BigInteger sum(BigInteger acc, BigInteger val) {
-    // if (BigInteger.ZERO.compareTo(val)>0)
+  private static BigInteger sum(BigInteger acc, BigInteger val) {
     return acc.add(val);
+  }
+
+  public static void main(String[] args) {
+    assert (BigInteger.ZERO.compareTo(sum(BigInteger.ZERO, BigInteger.ZERO)) == 0);
+    assert (BigInteger.ONE.compareTo(sum(BigInteger.ZERO, BigInteger.ONE)) == 0);
+    assert (BigInteger.valueOf(3).compareTo(sum(BigInteger.ZERO, BigInteger.TWO)) == 0);
   }
 }
