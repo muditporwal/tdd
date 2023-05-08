@@ -34,4 +34,12 @@ class RecursionLimitTest {
     long executionRange = limit;
     assertEquals(executionRange, rl.testLimit(executionRange));
   }
+
+  @Test
+  void testStackOverflowWithLargeLimit() {
+    rl.setLimit(3500L);
+    long limit = rl.fetchLimit();
+    long executionRange = limit;
+    assertEquals(executionRange, rl.testLimit(executionRange));
+  }
 }
