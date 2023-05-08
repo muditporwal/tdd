@@ -22,9 +22,16 @@ class RecursionLimitTest {
   }
 
   @Test
-  void testExecutionLimitForRecursion() {
+  void testExecutionLimitExceedingForRecursion() {
     long limit = rl.fetchLimit();
     long executionRange = limit + 1;
     assertThrowsExactly(RuntimeException.class, () -> rl.testLimit(executionRange));
+  }
+
+  @Test
+  void testExecutionLimitInRangeForRecursion() {
+    long limit = rl.fetchLimit();
+    long executionRange = limit;
+    assertEquals(executionRange, rl.testLimit(executionRange));
   }
 }

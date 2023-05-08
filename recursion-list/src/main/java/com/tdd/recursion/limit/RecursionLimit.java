@@ -18,7 +18,9 @@ class RecursionLimit {
   }
 
   private void recursiveFunction(long recursionLevel, long executionRange, long limit) {
+
     System.out.println("Current Recursion Frame : " + recursionLevel);
+    if (recursionLevel == executionRange) return;
     if (recursionLevel == limit && recursionLevel < executionRange) {
       throw new RuntimeException("ExecutionRange Out of bounds of the set frame limit");
     } else {
