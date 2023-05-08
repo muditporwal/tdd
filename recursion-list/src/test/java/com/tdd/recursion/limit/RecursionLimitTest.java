@@ -1,6 +1,7 @@
 package com.tdd.recursion.limit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,6 @@ class RecursionLimitTest {
   void testExecutionLimitForRecursion() {
     long limit = rl.fetchLimit();
     long executionRange = limit + 1;
-    rl.testLimit(executionRange);
+    assertThrowsExactly(RuntimeException.class, () -> rl.testLimit(executionRange));
   }
 }
