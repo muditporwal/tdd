@@ -1,7 +1,14 @@
 package com.tdd.recursion.limit;
 
 class RecursionLimit {
-  public static long fetchLimit() {
+
+  private long limit;
+
+  public long fetchLimit() {
     return 0L;
+  }
+
+  public void setLimit(long i) {
+    this.limit = i;
   }
 }
