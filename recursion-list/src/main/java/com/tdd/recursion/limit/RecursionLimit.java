@@ -13,7 +13,16 @@ class RecursionLimit {
   }
 
   public long testLimit(long executionRange) {
+    recursiveFunction(0L, executionRange, limit);
+    return executionRange;
+  }
 
-    return 0L;
+  private void recursiveFunction(long recursionLevel, long executionRange, long limit) {
+    System.out.println("Current Recursion Frame : " + recursionLevel);
+    if (recursionLevel == limit && recursionLevel < executionRange) {
+      throw new RuntimeException("ExecutionRange Out of bounds of the set frame limit");
+    } else {
+      recursiveFunction(recursionLevel + 1, executionRange, limit);
+    }
   }
 }
