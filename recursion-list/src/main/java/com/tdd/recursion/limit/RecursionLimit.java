@@ -5,10 +5,15 @@ class RecursionLimit {
   private long limit;
 
   public long fetchLimit() {
-    return 0L;
+    return limit;
   }
 
   public void setLimit(long i) {
     this.limit = i;
+  }
+
+  public long testLimit(long executionRange) {
+
+    return 0L;
   }
 }

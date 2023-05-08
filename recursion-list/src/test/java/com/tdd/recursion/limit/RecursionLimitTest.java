@@ -17,6 +17,13 @@ class RecursionLimitTest {
   @Test
   void testRecursionLimit() {
     long limit = rl.fetchLimit();
-    assertEquals(0L, limit);
+    assertEquals(12L, limit);
+  }
+
+  @Test
+  void testExecutionLimitForRecursion() {
+    long limit = rl.fetchLimit();
+    long executionRange = limit + 1;
+    rl.testLimit(executionRange);
   }
 }
