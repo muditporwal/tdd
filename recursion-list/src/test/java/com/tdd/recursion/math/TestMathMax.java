@@ -23,7 +23,7 @@ class TestMathMax {
 
   @Test
   void twoElementListShouldReturnTheMax() {
-    int[] a = new int[] {1, 2};
+    int[] a = new int[] {2, 1};
     int b = MathMax.apply(null, a);
     assertEquals(2, b);
   }

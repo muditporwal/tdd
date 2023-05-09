@@ -2,8 +2,16 @@ package com.tdd.recursion;
 
 public class MathMax {
   public static int apply(Integer index, int[] a) {
+    int ind;
+    if (index == null) ind = 0;
+    else ind = index;
+
     if (a.length == 0) return Integer.MIN_VALUE;
-    if (a.length == 1) return a[0];
-    else return -1;
+    if (a.length - ind == 1) return a[ind];
+    else {
+      int max = apply(ind + 1, a);
+      if (max < a[ind]) return a[ind];
+      else return max;
+    }
   }
 }
