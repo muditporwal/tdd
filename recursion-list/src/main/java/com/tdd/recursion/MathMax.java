@@ -1,6 +1,9 @@
 package com.tdd.recursion;
 
 public class MathMax {
+  private MathMax() {}
+
+  @SuppressWarnings("ManualMinMaxCalculation")
   public static int apply(Integer index, int[] a) {
     int ind;
     if (index == null) ind = 0;
