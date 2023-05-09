@@ -27,4 +27,11 @@ class TestMathMax {
     int b = MathMax.apply(null, a);
     assertEquals(2, b);
   }
+
+  @Test
+  void threeElementListShouldReturnTheMax() {
+    int[] a = new int[] {2, 3, 4, 5, 2, 1, -1, 0};
+    int b = MathMax.apply(null, a);
+    assertEquals(5, b);
+  }
 }
