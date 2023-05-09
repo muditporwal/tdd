@@ -13,4 +13,11 @@ class TestMathMax {
     int b = MathMax.apply(null, a);
     assertEquals(1, b);
   }
+
+  @Test
+  void noElementListShouldReturnMinimumInteger() {
+    int[] a = new int[] {};
+    int b = MathMax.apply(null, a);
+    assertEquals(Integer.MIN_VALUE, b);
+  }
 }
