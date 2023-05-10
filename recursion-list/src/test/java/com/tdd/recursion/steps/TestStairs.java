@@ -20,7 +20,7 @@ class TestStairs {
     int startStair = 20;
     int strideWidth = 1;
     List<Integer> steps = Stairs.traverse(startStair, strideWidth);
-    assertEquals(0, steps.size());
+    assertEquals(20, steps.size());
   }
 
   @Test
