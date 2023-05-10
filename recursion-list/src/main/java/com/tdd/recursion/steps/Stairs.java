@@ -10,7 +10,7 @@ class Stairs {
     this.width = width;
   }
 
-  public List<Integer> traverse() {
+  public List<Integer> traverse(int startStair) {
     if (this.width == 0) return Collections.emptyList();
     return null;
   }

@@ -10,7 +10,8 @@ class TestStairs {
   @Test
   void testWidth0ShouldReturnEmptyArray() {
     Stairs stairs = new Stairs.Builder().width(0).createStairs();
-    List<Integer> steps = stairs.traverse();
+    int startStair = 20;
+    List<Integer> steps = stairs.traverse(startStair);
     assertEquals(0, steps.size());
   }
 }
