@@ -28,4 +28,9 @@ class TestStairs {
     assertThrowsExactly(IllegalArgumentException.class, () -> Stairs.traverse(-1, 3));
     assertThrowsExactly(IllegalArgumentException.class, () -> Stairs.traverse(200, 3));
   }
+
+  @Test
+  void testForInvalidStrideWidth() {
+    assertThrowsExactly(IllegalArgumentException.class, () -> Stairs.traverse(50, 60));
+  }
 }
