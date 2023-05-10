@@ -17,10 +17,14 @@ class TestStairs {
 
   @Test
   void testWidth1WithStart1ShouldReturnArrayWith1Elements() {
-    int startStair = 20;
-    int strideWidth = 1;
-    List<Integer> steps = Stairs.traverse(startStair, strideWidth);
-    assertEquals(20, steps.size());
+    List<Integer> steps = Stairs.traverse(1, 1);
+    assertEquals(2, steps.size());
+  }
+
+  @Test
+  void testWidth1WithStart20ShouldReturnArrayWith21Elements() {
+    List<Integer> steps = Stairs.traverse(20, 1);
+    assertEquals(21, steps.size());
   }
 
   @Test
