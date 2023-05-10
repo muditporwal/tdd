@@ -9,9 +9,16 @@ class TestStairs {
 
   @Test
   void testWidth0ShouldReturnEmptyArray() {
-    Stairs stairs = new Stairs.Builder().width(0).createStairs();
     int startStair = 20;
-    List<Integer> steps = stairs.traverse(startStair);
+    List<Integer> steps = Stairs.traverse(startStair, 0);
+    assertEquals(0, steps.size());
+  }
+
+  @Test
+  void testWidth1WithStart1ShouldReturnArrayWith1Elements() {
+    int startStair = 20;
+    int strideWidth = 1;
+    List<Integer> steps = Stairs.traverse(startStair, strideWidth);
     assertEquals(0, steps.size());
   }
 }
