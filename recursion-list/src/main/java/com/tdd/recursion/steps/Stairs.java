@@ -1,5 +1,6 @@
 package com.tdd.recursion.steps;
 
+import java.util.Collections;
 import java.util.List;
 
 class Stairs {
@@ -10,7 +11,8 @@ class Stairs {
   }
 
   public List<Integer> traverse() {
-      return null;
+    if (this.width == 0) return Collections.emptyList();
+    return null;
   }
 
   static class Builder {
