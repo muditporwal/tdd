@@ -25,14 +25,14 @@ class LLNode {
     return head;
   }
 
-  public LLNode reverseList(ListNode e) {
+  public LLNode reverseLList(ListNode e) {
     if (Objects.equals(e, head)) {
       return new LLNode(e);
     } else {
       if (e.next == null) {
         return new LLNode(e);
       } else {
-        LLNode reverseList = reverseList(e.next);
+        LLNode reverseList = reverseLList(e.next);
         reverseList.add(e);
         return reverseList;
       }
