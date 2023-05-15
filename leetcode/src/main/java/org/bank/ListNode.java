@@ -21,6 +21,7 @@ class ListNode {
     } else {
       ListNode head = reverse(node.next);
       head.next = node;
+      return head;
     }
   }
 
