@@ -28,7 +28,7 @@ class LinkedListTest {
     assertEquals(node, ListNode.reverse(node));
   }
 
-  // @Test
+  @Test
   void testReverseLLWithSecondElementShouldReturnAllElementsInAReverseList() {
     ListNode node = new ListNode(2);
     ListNode head = new ListNode(1, node);

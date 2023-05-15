@@ -20,7 +20,12 @@ class ListNode {
       return node;
     } else {
       ListNode head = reverse(node.next);
-      head.next = node;
+      ListNode traversalNode = head;
+      while (traversalNode.next != null) {
+        traversalNode = traversalNode.next;
+      }
+      traversalNode.next = node;
+      node.next = null;
       return head;
     }
   }
