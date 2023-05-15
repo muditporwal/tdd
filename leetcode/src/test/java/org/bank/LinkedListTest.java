@@ -38,4 +38,22 @@ class LinkedListTest {
     LLNode reverseList = list.reverseList(node);
     assertEquals(list, reverseList);
   }
+
+  @Test
+  void testReverseLLWithTwoElement() {
+    LLNode list = new LLNode();
+    ListNode node1 = new ListNode(1);
+    ListNode node2 = new ListNode(2);
+    list.add(node1);
+    list.add(node2);
+    LLNode reverseList = list.reverseList(node1);
+    assertEquals(1, reverseList.size());
+    assertEquals(node1, reverseList.get(0));
+
+    reverseList = list.reverseList(node2);
+    assertEquals(2, reverseList.size());
+    assertEquals(node2, reverseList.get(0));
+    assertEquals(node1, reverseList.get(1));
+    assertEquals(node2.next, node1);
+  }
 }
