@@ -41,8 +41,8 @@ class LinkedListTest {
     LLNode list = new LLNode(head);
     ListNode node2 = new ListNode(2);
     list.add(node2);
-    LLNode reverseList = list.reverseLList(head);
-    assertEquals(1, reverseList.size());
-    assertEquals(head, reverseList.get(0));
+    LLNode reverseList = list.reverseLList(node2);
+    assertEquals(2, reverseList.size());
+    assertEquals(node2, reverseList.get(0));
   }
 }
