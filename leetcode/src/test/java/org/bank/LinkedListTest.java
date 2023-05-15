@@ -1,6 +1,7 @@
 package org.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
@@ -33,5 +34,14 @@ class LinkedListTest {
     LLNode list = new LLNode();
     list.add(new ListNode(1));
     assertEquals(1, list.size());
+  }
+
+  @Test
+  void testTwoElementLL() {
+    LLNode list = new LLNode();
+    list.add(new ListNode(1));
+    list.add(new ListNode(2));
+    assertEquals(2, list.size());
+    assertNotNull(list.get(0).next);
   }
 }
