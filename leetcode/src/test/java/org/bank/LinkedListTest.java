@@ -6,6 +6,6 @@ class LinkedListTest {
 
   @Test
   void testSetupLinkedList() {
-    ListNode node = new LinkedListNode();
+    LinkedList list = new LinkedList();
   }
 }

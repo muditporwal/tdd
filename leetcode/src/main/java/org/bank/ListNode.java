@@ -1,6 +1,6 @@
 package org.bank;
 
-abstract class ListNode {
+class ListNode {
   int val;
   ListNode next;
 
