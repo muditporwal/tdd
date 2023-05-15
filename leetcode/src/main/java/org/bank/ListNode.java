@@ -14,4 +14,14 @@ class ListNode {
     this.val = val;
     this.next = next;
   }
+
+  public int size() {
+    ListNode node = this;
+    int size = 0;
+    while (node != null) {
+      size++;
+      node = node.next;
+    }
+    return size;
+  }
 }
