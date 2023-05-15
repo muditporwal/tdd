@@ -26,15 +26,14 @@ class LinkedListTest {
     assertEquals(node, list.get(1));
   }
 
-  //
-  //  @Test
-  //  void testReverseLLWithOneElement() {
-  //    ListNode head = new ListNode(1);
-  //    LLNode list = new LLNode(head);
-  //    LLNode reverseList = list.reverseList(head);
-  //    assertEquals(list, reverseList);
-  //  }
-  //
+  @Test
+  void testReverseLLWithOneElement() {
+    ListNode head = new ListNode(1);
+    LLNode list = new LLNode(head);
+    LLNode reverseList = list.reverseList(head);
+    assertEquals(list, reverseList);
+  }
+
   //  @Test
   //  void testReverseLLWithTwoElement() {
   //    LLNode list = new LLNode();
