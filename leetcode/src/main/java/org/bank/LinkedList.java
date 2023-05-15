@@ -19,8 +19,10 @@ class LLNode {
   }
 
   public LLNode add(ListNode node) {
-    ListNode lastNode = elements.get(elements.size() - 1);
-    lastNode.next = node;
+    if (size() != 0) {
+      ListNode lastNode = elements.get(elements.size() - 1);
+      lastNode.next = node;
+    }
     elements.add(node);
     return new LLNode(elements);
   }

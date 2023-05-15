@@ -2,7 +2,6 @@ package org.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 class LinkedListTest {
@@ -31,9 +30,8 @@ class LinkedListTest {
 
   @Test
   void testSingleElementLL() {
-    ArrayList<ListNode> ll = new ArrayList<>();
-    ll.add(new ListNode(1, null));
-    LLNode list = new LLNode(ll);
+    LLNode list = new LLNode();
+    list.add(new ListNode(1));
     assertEquals(1, list.size());
   }
 }
