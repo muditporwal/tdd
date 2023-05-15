@@ -26,8 +26,9 @@ class LLNode {
   public LLNode reverseList(ListNode e) {
     if (e.next == null) {
       return new LLNode(e);
+    } else {
+      return null;
     }
-    return null;
   }
 
   public ListNode get(int i) {
