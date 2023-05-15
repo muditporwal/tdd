@@ -15,6 +15,10 @@ class ListNode {
     this.next = next;
   }
 
+  public static ListNode reverse(ListNode head) {
+    return null;
+  }
+
   public int size() {
     ListNode node = this;
     int size = 0;
