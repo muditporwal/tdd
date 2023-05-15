@@ -1,6 +1,7 @@
 package org.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,17 +9,23 @@ class LinkedListTest {
 
   @Test
   void testSingleElementLLShouldReturnSize1() {
-    LLNode list = new LLNode(new ListNode(1));
+    ListNode head = new ListNode(1);
+    LLNode list = new LLNode(head);
     assertEquals(1, list.size());
+    assertEquals(head, list.get(0));
   }
 
-  //  @Test
-  //  void testTwoElementLL() {
-  //    LLNode list = new LLNode(new ListNode(1));
-  //    list.add(new ListNode(2));
-  //    assertEquals(2, list.size());
-  //    assertNotNull(list.get(0).next);
-  //  }
+  @Test
+  void testTwoElementLL() {
+    LLNode list = new LLNode(new ListNode(1));
+    ListNode node = new ListNode(2);
+    list.add(node);
+    assertEquals(2, list.size());
+    assertNotNull(list.get(0).next);
+    assertEquals(node, list.get(0).next);
+    assertEquals(node, list.get(1));
+  }
+
   //
   //  @Test
   //  void testReverseLLWithOneElement() {

@@ -27,5 +27,11 @@ class LLNode {
     return this;
   }
 
-
+  public ListNode get(int i) {
+    ListNode node = head;
+    for (int j = 0; j < i; j++) {
+      node = node.next;
+    }
+    return node;
+  }
 }
