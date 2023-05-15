@@ -9,10 +9,10 @@ class LinkedListTest {
 
   @Test
   void testSetupLinkedList() {
-    LinkedList list = new LinkedList();
+    LLNode list = new LLNode();
     ListNode e = new ListNode(1);
     list.elements.add(e);
-    LinkedList reverseList = list.reverseList(e);
+    LLNode reverseList = list.reverseList(e);
     assertEquals(reverseList.elements.get(0), e);
     ListNode f = new ListNode(2);
     e.next = f;
@@ -24,7 +24,7 @@ class LinkedListTest {
 
   @Test
   void testEmptyLL() {
-    LinkedList list = new LinkedList();
+    LLNode list = new LLNode();
     int size = list.size();
     assertEquals(0, size);
   }
@@ -33,7 +33,7 @@ class LinkedListTest {
   void testSingleElementLL() {
     ArrayList<ListNode> ll = new ArrayList<>();
     ll.add(new ListNode(1, null));
-    LinkedList list = new LinkedList(ll);
+    LLNode list = new LLNode(ll);
     assertEquals(1, list.size());
   }
 }
