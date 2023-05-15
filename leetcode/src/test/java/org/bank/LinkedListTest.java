@@ -2,6 +2,7 @@ package org.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 class LinkedListTest {
@@ -22,9 +23,17 @@ class LinkedListTest {
   }
 
   @Test
-  void testSingleElementLL() {
+  void testEmptyLL() {
     LinkedList list = new LinkedList();
     int size = list.size();
     assertEquals(0, size);
+  }
+
+  @Test
+  void testSingleElementLL() {
+    ArrayList<ListNode> ll = new ArrayList<>();
+    ll.add(new ListNode(1, null));
+    LinkedList list = new LinkedList(ll);
+    assertEquals(1, list.size());
   }
 }
