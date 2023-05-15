@@ -9,4 +9,8 @@ class LinkedList {
   public LinkedList() {
     this.elements = new ArrayList<>();
   }
+
+  public List<ListNode> reverseList(ListNode e) {
+    return elements;
+  }
 }
