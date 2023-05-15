@@ -1,37 +1,31 @@
 package org.bank;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class LLNode {
-  private final List<ListNode> elements;
 
-  LLNode() {
-    this.elements = new ArrayList<>();
-  }
+  private final ListNode head;
+  private ListNode tail;
+  private int size;
 
-  public LLNode(List<ListNode> elements) {
-    this.elements = elements;
+  public LLNode(ListNode head) {
+    this.head = head;
+    this.tail = head;
+    this.size = 1;
   }
 
   public int size() {
-    return this.elements.size();
+    return size;
   }
 
-  public LLNode add(ListNode node) {
-    if (size() != 0) {
-      ListNode lastNode = elements.get(elements.size() - 1);
-      lastNode.next = node;
-    }
-    elements.add(node);
-    return new LLNode(elements);
+  public ListNode add(ListNode node) {
+    tail.next = node;
+    size = size + 1;
+    tail = node;
+    return head;
   }
 
   public LLNode reverseList(ListNode e) {
     return this;
   }
 
-  public ListNode get(int i) {
-    return elements.get(i);
-  }
+
 }
