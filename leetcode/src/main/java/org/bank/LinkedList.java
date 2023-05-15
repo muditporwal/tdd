@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class LLNode {
-  List<ListNode> elements;
+  private final List<ListNode> elements;
 
   LLNode() {
     this.elements = new ArrayList<>();
@@ -29,5 +29,9 @@ class LLNode {
 
   public LLNode reverseList(ListNode e) {
     return this;
+  }
+
+  public ListNode get(int i) {
+    return elements.get(i);
   }
 }
