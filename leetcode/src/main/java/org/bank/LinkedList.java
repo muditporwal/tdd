@@ -6,11 +6,17 @@ import java.util.List;
 class LinkedList {
   List<ListNode> elements;
 
-  public LinkedList() {
+  LinkedList() {
     this.elements = new ArrayList<>();
   }
 
-  public List<ListNode> reverseList(ListNode e) {
-    return elements;
+  LinkedList(List<ListNode> elements) {
+    this.elements = elements;
+  }
+
+  public LinkedList reverseList(ListNode e) {
+    List<ListNode> list = new ArrayList<>();
+    list.add(e);
+    return new LinkedList(list);
   }
 }
