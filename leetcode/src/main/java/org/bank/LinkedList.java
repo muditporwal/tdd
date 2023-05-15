@@ -29,7 +29,13 @@ class LLNode {
     if (Objects.equals(e, head)) {
       return new LLNode(e);
     } else {
-      return null;
+      if (e.next == null) {
+        return new LLNode(e);
+      } else {
+        LLNode reverseList = reverseList(e.next);
+        reverseList.add(e);
+        return reverseList;
+      }
     }
   }
 
