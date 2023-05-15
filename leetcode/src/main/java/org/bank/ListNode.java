@@ -15,11 +15,11 @@ class ListNode {
     this.next = next;
   }
 
-  public static ListNode reverse(ListNode node) {
+  public static ListNode reverseList(ListNode node) {
     if (node.next == null) {
       return node;
     } else {
-      ListNode head = reverse(node.next);
+      ListNode head = reverseList(node.next);
       ListNode traversalNode = head;
       while (traversalNode.next != null) {
         traversalNode = traversalNode.next;

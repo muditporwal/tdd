@@ -25,14 +25,14 @@ class LinkedListTest {
   @Test
   void testReverseLLWithOneElementShouldReturnTheSameElementAsHead() {
     ListNode node = new ListNode(1);
-    assertEquals(node, ListNode.reverse(node));
+    assertEquals(node, ListNode.reverseList(node));
   }
 
   @Test
   void testReverseLLWithSecondElementShouldReturnAllElementsInAReverseList() {
     ListNode node = new ListNode(2);
     ListNode head = new ListNode(1, node);
-    ListNode newHead = ListNode.reverse(head);
+    ListNode newHead = ListNode.reverseList(head);
     assertEquals(2, newHead.size());
     assertEquals(node, newHead);
   }
