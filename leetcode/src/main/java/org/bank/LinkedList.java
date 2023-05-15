@@ -19,4 +19,8 @@ class LinkedList {
     list.add(e);
     return new LinkedList(list);
   }
+
+  public int size() {
+    return this.elements.size();
+  }
 }

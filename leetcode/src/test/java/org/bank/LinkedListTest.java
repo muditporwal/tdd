@@ -20,4 +20,11 @@ class LinkedListTest {
     assertEquals(reverseList.elements.get(0), f);
     assertEquals(reverseList.elements.get(1), e);
   }
+
+  @Test
+  void testSingleElementLL() {
+    LinkedList list = new LinkedList();
+    int size = list.size();
+    assertEquals(0, size);
+  }
 }
