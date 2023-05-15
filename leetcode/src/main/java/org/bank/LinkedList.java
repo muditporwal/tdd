@@ -1,5 +1,7 @@
 package org.bank;
 
+import java.util.Objects;
+
 class LLNode {
 
   private final ListNode head;
@@ -24,7 +26,7 @@ class LLNode {
   }
 
   public LLNode reverseList(ListNode e) {
-    if (e.next == null) {
+    if (Objects.equals(e, head)) {
       return new LLNode(e);
     } else {
       return null;
