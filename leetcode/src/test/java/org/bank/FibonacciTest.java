@@ -29,6 +29,6 @@ class FibonacciTest {
   @Test
   void fibonacciWithHigherOrderIntegerShouldReturnSumOfPreviousFibs() {
     int val = fib.fib(2);
-    assertEquals(2, val);
+    assertEquals(1, val);
   }
 }
