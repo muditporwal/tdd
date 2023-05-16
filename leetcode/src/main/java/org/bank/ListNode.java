@@ -14,7 +14,7 @@ class ListNode {
   }
 
   public static ListNode reverseList(ListNode node) {
-    if (node.next == null) {
+    if (node ==null || node.next == null) {
       return node;
     } else {
       ListNode head = reverseList(node.next);
