@@ -22,4 +22,13 @@ class LinkedListMergeTest {
     outputNode = LinkedListMerge.mergeTwoLists(null, inputNode);
     assertEquals(inputNode, outputNode);
   }
+
+  @Test
+  void whenMergingTwoNodesWithSingleElementShouldReturnMergedList() {
+    ListNode inputNode1 = new ListNode(1);
+    ListNode inputNode2 = new ListNode(2);
+    ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
+    assertEquals(1, outputNode.val);
+    assertEquals(2, outputNode.next.val);
+  }
 }
