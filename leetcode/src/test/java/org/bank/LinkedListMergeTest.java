@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 
 class LinkedListMergeTest {
 
-  @SuppressWarnings("DataFlowIssue")
+  @SuppressWarnings({"ConstantValue"})
+  // - No Elements returns nothing
   @Test
   void whenMergingNullHeadsItShouldThrowIllegalStateException() {
     ListNode output = LinkedListMerge.mergeTwoLists(null, null);
@@ -53,7 +54,7 @@ class LinkedListMergeTest {
 
   // TODO
   // Cases
-  // - No Elements returns nothing
+
   // - Ensure that the order of the elements does not matter
   // - One element and no element returns one element
   // - One element and one element returns two elements sorted
