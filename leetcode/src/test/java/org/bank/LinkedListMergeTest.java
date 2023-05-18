@@ -16,7 +16,7 @@ class LinkedListMergeTest {
     assertNull(output);
   }
 
-  // - One element and a null should return one element
+  // - One element and no element returns one element
   @Test
   void whenMergingOneNullHeadsItShouldReturnTheSameHead() {
     ListNode inputNode = new ListNode(1);
@@ -25,10 +25,20 @@ class LinkedListMergeTest {
     assertEquals(inputNode, outputNode);
   }
 
+  // - One element and one element returns two elements sorted
   @Test
   void whenMergingTwoNodesWithSingleElementShouldReturnMergedList() {
     ListNode inputNode1 = new ListNode(1);
     ListNode inputNode2 = new ListNode(2);
+    ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
+    assertEquals(List.of(1, 2), outputNode.toList());
+  }
+
+  // - Ensure that the order of the elements does not matter
+  @Test
+  void whenMergingTwoNodesWithSingleElementInReverseOrderShouldReturnMergedList() {
+    ListNode inputNode1 = new ListNode(2);
+    ListNode inputNode2 = new ListNode(1);
     ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
     assertEquals(List.of(1, 2), outputNode.toList());
   }
@@ -56,9 +66,6 @@ class LinkedListMergeTest {
   // TODO
   // Cases
 
-  // - Ensure that the order of the elements does not matter
-  // - One element and no element returns one element
-  // - One element and one element returns two elements sorted
   // - Two elements and one element returns three elements sorted
   // - Two elements and two elements return four elements sorted
   // - check failed test case
