@@ -52,6 +52,13 @@ class LinkedListMergeTest {
   }
 
   // TODO
+  // Cases
+  // - No Elements returns nothing
+  // - Ensure that the order of the elements does not matter
+  // - One element and no element returns one element
+  // - One element and one element returns two elements sorted
+  // - Two elements and one element returns three elements sorted
+  // - Two elements and two elements return four elements sorted
   // - check failed test case
   @Test
   void checkCaseWithBothListsHavingMultipleValueOf2ElementsEachShouldBeAbleToMerge() {
