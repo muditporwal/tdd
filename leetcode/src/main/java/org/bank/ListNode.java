@@ -1,5 +1,6 @@
 package org.bank;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class ListNode {
@@ -57,5 +58,15 @@ class ListNode {
       node = node.next;
     }
     return size;
+  }
+
+  public List<Integer> toList() {
+    ArrayList<Integer> list = new ArrayList<>();
+    ListNode element = this;
+    while (element.next != null) {
+      list.add(element.val);
+      element = element.next;
+    }
+    return list;
   }
 }
