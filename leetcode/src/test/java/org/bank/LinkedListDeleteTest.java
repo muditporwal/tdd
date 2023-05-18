@@ -1,3 +1,11 @@
 package org.bank;
 
-class LinkedListDeleteTest {}
+import org.junit.jupiter.api.Test;
+
+class LinkedListDeleteTest {
+
+    @Test
+    void testSetupOfDeleteInterface(){
+        
+    }
+}
