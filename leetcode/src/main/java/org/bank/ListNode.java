@@ -63,7 +63,7 @@ class ListNode {
   public List<Integer> toList() {
     ArrayList<Integer> list = new ArrayList<>();
     ListNode element = this;
-    while (element.next != null) {
+    while (element != null) {
       list.add(element.val);
       element = element.next;
     }
