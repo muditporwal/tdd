@@ -2,13 +2,15 @@ package org.bank;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 class ListNode {
-  int val;
   ListNode next;
+  int val;
 
   ListNode(int val) {
     this.val = val;
+    next = null;
   }
 
   ListNode(int val, ListNode next) {
@@ -70,5 +72,18 @@ class ListNode {
       element = element.next;
     }
     return list;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ListNode listNode = (ListNode) o;
+    return val == listNode.val && Objects.equals(next, listNode.next);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(next, val);
   }
 }

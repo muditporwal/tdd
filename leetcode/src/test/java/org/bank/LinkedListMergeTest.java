@@ -16,6 +16,7 @@ class LinkedListMergeTest {
     assertNull(output);
   }
 
+  // - One element and a null should return one element
   @Test
   void whenMergingOneNullHeadsItShouldReturnTheSameHead() {
     ListNode inputNode = new ListNode(1);
