@@ -16,7 +16,10 @@ class LinkedListMergeTest {
   @Test
   void whenMergingOneNullHeadsItShouldReturnTheSameHead() {
     ListNode inputNode = new ListNode(1);
-    ListNode outputNode = LinkedListMerge.mergeTwoLists(null, inputNode);
+    ListNode outputNode;
+    outputNode = LinkedListMerge.mergeTwoLists(null, inputNode);
+    assertEquals(inputNode, outputNode);
+    outputNode = LinkedListMerge.mergeTwoLists(null, inputNode);
     assertEquals(inputNode, outputNode);
   }
 }
