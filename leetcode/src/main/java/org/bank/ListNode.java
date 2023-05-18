@@ -15,7 +15,9 @@ class ListNode {
     this.next = next;
   }
 
-  public static ListNode build(List<Integer> values) {}
+  public static ListNode build(List<Integer> values) {
+    return null;
+  }
 
   public static ListNode reverseList(ListNode node) {
     if (node == null || node.next == null) {

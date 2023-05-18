@@ -47,8 +47,12 @@ class LinkedListMergeTest {
 
   @Test
   void createBuilderForCleanerInterface() {
-    List<Integer> list = List.of(1, 2, 3, 4, 5);
-    ListNode.build(list);
+    List<Integer> list = List.of(1, 2, 3);
+    ListNode outputNode = ListNode.build(list);
+    assertEquals(1, outputNode.val);
+    assertEquals(2, outputNode.next.val);
+    assertEquals(3, outputNode.next.next.val);
+    assertNull(outputNode.next.next.next);
   }
 
   // TODO
