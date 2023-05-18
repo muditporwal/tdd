@@ -43,4 +43,8 @@ class LinkedListMergeTest {
     assertEquals(3, outputNode.next.next.val);
     assertNull(outputNode.next.next.next);
   }
+
+  // TODO
+  // - check failed test case
+
 }
