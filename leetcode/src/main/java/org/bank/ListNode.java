@@ -16,7 +16,22 @@ class ListNode {
   }
 
   public static ListNode build(List<Integer> values) {
-    return null;
+    ListNode outputNode = null, previousNode = null, currentNode = null;
+    if (values == null) {
+      return null;
+    }
+    for (int i = 0; i < values.size(); i++) {
+      if (values.get(i) == null) throw new IllegalArgumentException("Invalid Integer Value");
+      currentNode = new ListNode(values.get(i));
+      if (i == 0) {
+        outputNode = currentNode;
+        previousNode = currentNode;
+        continue;
+      }
+      previousNode.next = currentNode;
+      previousNode = currentNode;
+    }
+    return outputNode;
   }
 
   public static ListNode reverseList(ListNode node) {
