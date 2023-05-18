@@ -17,7 +17,9 @@ class ListNode {
   }
 
   public static ListNode build(List<Integer> values) {
-    ListNode outputNode = null, previousNode = null, currentNode = null;
+    ListNode outputNode = null;
+    ListNode previousNode = null;
+    ListNode currentNode;
     if (values == null) {
       return null;
     }

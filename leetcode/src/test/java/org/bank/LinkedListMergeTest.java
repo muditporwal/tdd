@@ -20,8 +20,6 @@ class LinkedListMergeTest {
     ListNode outputNode;
     outputNode = LinkedListMerge.mergeTwoLists(null, inputNode);
     assertEquals(inputNode, outputNode);
-    outputNode = LinkedListMerge.mergeTwoLists(null, inputNode);
-    assertEquals(inputNode, outputNode);
   }
 
   @Test
