@@ -3,6 +3,7 @@ package org.bank;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -42,6 +43,12 @@ class LinkedListMergeTest {
     assertEquals(2, outputNode.next.val);
     assertEquals(3, outputNode.next.next.val);
     assertNull(outputNode.next.next.next);
+  }
+
+  @Test
+  void createBuilderForCleanerInterface() {
+    List<Integer> list = List.of(1, 2, 3, 4, 5);
+    ListNode.build(list);
   }
 
   // TODO

@@ -1,5 +1,7 @@
 package org.bank;
 
+import java.util.List;
+
 class ListNode {
   int val;
   ListNode next;
@@ -13,8 +15,10 @@ class ListNode {
     this.next = next;
   }
 
+  public static ListNode build(List<Integer> values) {}
+
   public static ListNode reverseList(ListNode node) {
-    if (node ==null || node.next == null) {
+    if (node == null || node.next == null) {
       return node;
     } else {
       ListNode head = reverseList(node.next);
