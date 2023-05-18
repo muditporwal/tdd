@@ -1,6 +1,7 @@
 package org.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -40,5 +41,6 @@ class LinkedListMergeTest {
     assertEquals(1, outputNode.val);
     assertEquals(2, outputNode.next.val);
     assertEquals(3, outputNode.next.next.val);
+    assertNull(outputNode.next.next.next);
   }
 }
