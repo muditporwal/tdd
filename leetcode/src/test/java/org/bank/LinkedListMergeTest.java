@@ -36,7 +36,7 @@ class LinkedListMergeTest {
 
   @Test
   void whenMergingTwoListsWithTwoElementListShouldReturnMergedList() {
-    ListNode inputNode1 = new ListNode(1, new ListNode(3));
+    ListNode inputNode1 = ListNode.build(List.of(1, 3));
     ListNode inputNode2 = new ListNode(2);
     ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
     assertEquals(1, outputNode.val);
@@ -47,8 +47,7 @@ class LinkedListMergeTest {
 
   @Test
   void createBuilderForCleanerInterface() {
-    List<Integer> list = List.of(1, 2, 3);
-    ListNode outputNode = ListNode.build(list);
+    ListNode outputNode = ListNode.build(List.of(1, 2, 3));
     assertEquals(1, outputNode.val);
     assertEquals(2, outputNode.next.val);
     assertEquals(3, outputNode.next.next.val);
@@ -57,5 +56,10 @@ class LinkedListMergeTest {
 
   // TODO
   // - check failed test case
-
+  @Test
+  void checkCaseWithBothListsHavingMultipleValueOf2ElementsEachShouldBeAbleToMerge() {
+    ListNode inputNode1 = ListNode.build(List.of(1, 4));
+    ListNode inputNode2 = ListNode.build(List.of(2, 3));
+    ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
+  }
 }
