@@ -14,6 +14,21 @@ class LinkedListMerge {
         return n2;
       }
     }
+    if (n1 != null && n2 != null) {
+      if (n1.val <= n2.val) {
+        return getListNode(n1, n2);
+      } else {
+        return getListNode(n2, n1);
+      }
+    }
     return null;
+  }
+
+  private static ListNode getListNode(ListNode n1, ListNode n2) {
+    ListNode secondListHead = n2.next;
+    n2.next = n1.next;
+    n1.next = n2;
+    mergeTwoLists(n2, secondListHead);
+    return n1;
   }
 }
