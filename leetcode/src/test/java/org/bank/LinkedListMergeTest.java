@@ -1,7 +1,6 @@
 package org.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
@@ -30,8 +29,7 @@ class LinkedListMergeTest {
     ListNode inputNode1 = new ListNode(1);
     ListNode inputNode2 = new ListNode(2);
     ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
-    assertEquals(1, outputNode.val);
-    assertEquals(2, outputNode.next.val);
+    assertEquals(List.of(1, 2), outputNode.toList());
   }
 
   @Test
@@ -39,19 +37,13 @@ class LinkedListMergeTest {
     ListNode inputNode1 = ListNode.build(List.of(1, 3));
     ListNode inputNode2 = new ListNode(2);
     ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
-    assertEquals(1, outputNode.val);
-    assertEquals(2, outputNode.next.val);
-    assertEquals(3, outputNode.next.next.val);
-    assertNull(outputNode.next.next.next);
+    assertEquals(List.of(1, 2, 3), outputNode.toList());
   }
 
   @Test
   void createBuilderForCleanerInterface() {
     ListNode outputNode = ListNode.build(List.of(1, 2, 3));
-    assertEquals(1, outputNode.val);
-    assertEquals(2, outputNode.next.val);
-    assertEquals(3, outputNode.next.next.val);
-    assertNull(outputNode.next.next.next);
+    assertEquals(List.of(1, 2, 3), outputNode.toList());
   }
 
   @Test
