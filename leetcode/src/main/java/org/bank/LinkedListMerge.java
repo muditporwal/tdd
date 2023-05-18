@@ -9,21 +9,12 @@ class LinkedListMerge {
     else if (n2 == null) return n1;
     else {
       if (n1.val > n2.val) {
-        // ListNode newN2 = insertBefore(n1, n2);
-        // mergeTwoLists(n2, newN2);
+        n2.next = mergeTwoLists(n1,n2.next);
         return n2;
       } else {
-        ListNode newN2 = insertAfter(n1, n2);
-        mergeTwoLists(n2, newN2);
+        n1.next = mergeTwoLists(n1.next,n2);
         return n1;
       }
     }
-  }
-
-  private static ListNode insertAfter(ListNode n1, ListNode n2) {
-    ListNode returnNode = n2.next;
-    n2.next = n1.next;
-    n1.next = n2;
-    return returnNode;
   }
 }
