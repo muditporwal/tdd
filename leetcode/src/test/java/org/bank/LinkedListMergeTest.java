@@ -61,4 +61,13 @@ class LinkedListMergeTest {
     List<Integer> listOut = outputNode.toList();
     assertEquals(List.of(1, 2, 3, 4), listOut);
   }
+
+  @Test
+  void checkFailedCase() {
+    ListNode inputNode1 = ListNode.build(List.of(1, 2, 4));
+    ListNode inputNode2 = ListNode.build(List.of(1, 3, 4));
+    ListNode outputNode = LinkedListMerge.mergeTwoLists(inputNode1, inputNode2);
+    List<Integer> listOut = outputNode.toList();
+    assertEquals(List.of(1, 1, 2, 3, 4, 4), listOut);
+  }
 }
