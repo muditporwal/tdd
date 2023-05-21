@@ -18,4 +18,11 @@ class PowerOfTwoTest {
     assertThrowsExactly(IllegalArgumentException.class, () -> PowerOfTwo.isPowerOfTwo(-1));
     assertThrowsExactly(IllegalArgumentException.class, () -> PowerOfTwo.isPowerOfTwo(0));
   }
+
+
+  @Test
+  void testForOddValues() {
+    assertEquals(false, PowerOfTwo.isPowerOfTwo(3));
+    assertEquals(false, PowerOfTwo.isPowerOfTwo(11));
+  }
 }
