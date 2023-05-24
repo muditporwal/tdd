@@ -32,5 +32,11 @@ class AddTwoNumbersTest {
     ListNode node3 = ListNode.build(List.of(3, 2, 1));
     ListNode output = AddTwoNumbers.addTwoNumbers(node1, node2);
     assertEquals(output, node3);
+
+    node2 = null;
+    node1 = ListNode.build(List.of(3, 2, 1));
+    node3 = ListNode.build(List.of(3, 2, 1));
+    output = AddTwoNumbers.addTwoNumbers(node1, node2);
+    assertEquals(output, node3);
   }
 }
