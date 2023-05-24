@@ -37,4 +37,12 @@ class SwapPairsTest {
     ListNode out = SwapPairs.swapPairs(head);
     assertEquals(expected, out);
   }
+
+  @Test
+  void testSwapWithFiveNode() {
+    ListNode head = ListNode.build(List.of(1, 2, 3, 4, 6));
+    ListNode expected = ListNode.build(List.of(2, 1, 4, 3, 6));
+    ListNode out = SwapPairs.swapPairs(head);
+    assertEquals(expected, out);
+  }
 }
