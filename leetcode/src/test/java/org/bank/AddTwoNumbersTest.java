@@ -1,11 +1,19 @@
 package org.bank;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class AddTwoNumbersTest {
+
+  @Test
+  void testListNodeClone() {
+    ListNode node1 = ListNode.build(List.of(1, 2, 3));
+    ListNode node2 = ListNode.clone(node1);
+    assertEquals(node1, node2);
+    assertNotSame(node1.next, node2.next);
+  }
 
   @Test
   void testNoCarrySingleValueNodeAdditionShouldReturnSum() {

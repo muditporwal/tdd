@@ -54,7 +54,18 @@ class ListNode {
     }
   }
 
-  public static ListNode clone(ListNode node2) {}
+  public static ListNode clone(ListNode node) {
+    if (node == null) return null;
+    ListNode head = new ListNode(node.val);
+    ListNode current = node;
+    ListNode currentNew = head;
+    while (current.next != null) {
+      currentNew.next = new ListNode(current.next.val);
+      currentNew = currentNew.next;
+      current = current.next;
+    }
+    return head;
+  }
 
   public int size() {
     ListNode node = this;
