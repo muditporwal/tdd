@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class AddTwoNumbersTest {
-
+  // NOTE: These are all persisted as reverse lists
   @Test
   void testListNodeClone() {
     ListNode node1 = ListNode.build(List.of(1, 2, 3));
@@ -58,4 +58,13 @@ class AddTwoNumbersTest {
   }
 
   // TODO Implement Carry
+
+  @Test
+  void testCarryEqualListSizeForAddition() {
+    ListNode node1 = ListNode.build(List.of(9, 2));
+    ListNode node2 = ListNode.build(List.of(3, 2));
+    ListNode node3 = ListNode.build(List.of(2, 5));
+    ListNode output = AddTwoNumbers.addTwoNumbers(node1, node2);
+    assertEquals(output, node3);
+  }
 }
