@@ -49,5 +49,11 @@ class AddTwoNumbersTest {
   }
 
   @Test
-  void testNoCarryUnEqualListSizeForAddition() {}
+  void testNoCarryUnEqualListSizeForAddition() {
+    ListNode node1 = ListNode.build(List.of(1, 2));
+    ListNode node2 = ListNode.build(List.of(3, 2, 1));
+    ListNode node3 = ListNode.build(List.of(4, 4, 1));
+    ListNode output = AddTwoNumbers.addTwoNumbers(node1, node2);
+    assertEquals(output, node3);
+  }
 }
