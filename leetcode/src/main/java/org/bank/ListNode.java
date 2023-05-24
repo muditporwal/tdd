@@ -54,6 +54,8 @@ class ListNode {
     }
   }
 
+  public static ListNode clone(ListNode node2) {}
+
   public int size() {
     ListNode node = this;
     int size = 0;
