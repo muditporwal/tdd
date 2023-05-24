@@ -4,6 +4,10 @@ class SwapPairs {
   private SwapPairs() {}
 
   public static ListNode swapPairs(ListNode head) {
-    return null;
+    if (head == null || head.next == null) return head;
+    ListNode headNext = head.next;
+    head.next = head.next.next;
+    headNext.next = head;
+    return headNext;
   }
 }
