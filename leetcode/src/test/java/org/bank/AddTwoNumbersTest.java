@@ -24,4 +24,13 @@ class AddTwoNumbersTest {
     ListNode output = AddTwoNumbers.addTwoNumbers(node1, node2);
     assertEquals(output, node3);
   }
+
+  @Test
+  void testNoCarryMultiNodeAdditionWithOneListShouldReturnSum() {
+    ListNode node1 = null;
+    ListNode node2 = ListNode.build(List.of(3, 2, 1));
+    ListNode node3 = ListNode.build(List.of(3, 2, 1));
+    ListNode output = AddTwoNumbers.addTwoNumbers(node1, node2);
+    assertEquals(output, node3);
+  }
 }
