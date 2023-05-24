@@ -60,7 +60,7 @@ class AddTwoNumbersTest {
   // TODO Implement Carry
 
   @Test
-  void testCarryEqualListSizeForAddition() {
+  void testWithCarryEqualListSizeForAddition() {
     ListNode node1 = ListNode.build(List.of(9, 2));
     ListNode node2 = ListNode.build(List.of(3, 2));
     ListNode node3 = ListNode.build(List.of(2, 5));
