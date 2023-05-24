@@ -67,4 +67,13 @@ class AddTwoNumbersTest {
     ListNode output = AddTwoNumbers.addTwoNumbers(node1, node2);
     assertEquals(output, node3);
   }
+
+  @Test
+  void testWithCarryUnEqualListSizeForAddition() {
+    ListNode node1 = ListNode.build(List.of(9, 9, 9));
+    ListNode node2 = ListNode.build(List.of(1));
+    ListNode node3 = ListNode.build(List.of(0, 0, 0, 1));
+    ListNode output = AddTwoNumbers.addTwoNumbers(node1, node2);
+    assertEquals(output, node3);
+  }
 }

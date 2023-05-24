@@ -8,15 +8,19 @@ class AddTwoNumbers {
   }
 
   private static ListNode sumWithCarry(ListNode node1, ListNode node2, int carry) {
+    if (node1 == null && node2 == null){
+      if (carry ==0) return null;
+      else return new ListNode(carry);
+    }
     if (node1 == null && carry == 0) return ListNode.clone(node2);
     if (node2 == null && carry == 0) return ListNode.clone(node1);
     int sum = normalizeVal(node1) + normalizeVal(node2) + carry;
     int carryFwd = sum / 10;
     sum = sum % 10;
     ListNode head = new ListNode(sum);
-    if (node1.next != null || node2.next != null) {
-      head.next = sumWithCarry(node1.next, node2.next, carryFwd);
-    }
+    ListNode next1 = (node1 != null) ? node1.next : null;
+    ListNode next2 = (node2 != null) ? node2.next : null;
+    head.next = sumWithCarry(next1, next2, carryFwd);
     return head;
   }
 
