@@ -8,20 +8,20 @@ class AddTwoNumbers {
   }
 
   private static ListNode sumWithCarry(ListNode node1, ListNode node2, int carry) {
-    if (node1 == null && node2 == null){
-      if (carry ==0) return null;
-      else return new ListNode(carry);
+    if (node1 == null && node2 == null && carry == 0) {
+        return null; // Should be the end case where there is no carry and lists have ended
+    } else { // All other cases
+      int sum = normalizeVal(node1) + normalizeVal(node2) + carry;
+      int carryFwd = sum / 10;
+      sum = sum % 10;
+      ListNode head = new ListNode(sum);
+      head.next = sumWithCarry(getNextNode(node1), getNextNode(node2), carryFwd);
+      return head;
     }
-    if (node1 == null && carry == 0) return ListNode.clone(node2);
-    if (node2 == null && carry == 0) return ListNode.clone(node1);
-    int sum = normalizeVal(node1) + normalizeVal(node2) + carry;
-    int carryFwd = sum / 10;
-    sum = sum % 10;
-    ListNode head = new ListNode(sum);
-    ListNode next1 = (node1 != null) ? node1.next : null;
-    ListNode next2 = (node2 != null) ? node2.next : null;
-    head.next = sumWithCarry(next1, next2, carryFwd);
-    return head;
+  }
+
+  private static ListNode getNextNode(ListNode node1) {
+    return (node1 != null) ? node1.next : null;
   }
 
   private static int normalizeVal(ListNode node) {
