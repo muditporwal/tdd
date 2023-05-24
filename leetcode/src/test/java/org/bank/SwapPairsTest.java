@@ -6,7 +6,7 @@ class SwapPairsTest {
 
   @Test
   void testSetup() {
-
-    SwapPairs.swapPairs(head);
+    ListNode head = null;
+    ListNode newHead = SwapPairs.swapPairs(head);
   }
 }
