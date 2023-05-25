@@ -7,7 +7,7 @@ class PowerTo {
     if (n == 1) return x;
     if (n == -1) return 1 / x;
     double pow1;
-    if (n > 0) return x * myPow(x, n - 1);
-    else return 1 / x * myPow(x, n + 1);
+    pow1 = myPow(x, n / 2);
+    return pow1 * pow1 * myPow(x, n % 2); // myPow(x, 0/1/-1)
   }
 }
