@@ -33,4 +33,10 @@ class PowerToTest {
     result = PowerTo.myPow(2.0, -2);
     assertEquals(0.25, result);
   }
+
+  @Test
+  void testScenarioFromCase() {
+    double result = PowerTo.myPow(2.10, 3);
+    assertEquals(9.261, result, 0.000001);
+  }
 }
