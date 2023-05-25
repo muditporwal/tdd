@@ -17,4 +17,12 @@ class PowerToTest {
     double result = PowerTo.myPow(0.0, 1);
     assertEquals(0.0, result);
   }
+
+  @Test
+  void positivePowerShouldProduceCorrectResult() {
+    double result = PowerTo.myPow(2.0, 1);
+    assertEquals(2.0, result);
+    result = PowerTo.myPow(2.0, 2);
+    assertEquals(4.0, result);
+  }
 }
