@@ -24,9 +24,17 @@ class ReorderListTest {
   }
 
   @Test
-  void threeElementReversalTestShouldReturnTheSameElements() {
+  void threeElementReversalTestShouldReturnCorrectlySorted() {
     ListNode input = ListNode.build(List.of(1, 2, 3));
     ListNode expected = ListNode.build(List.of(1, 3, 2));
+    ReorderList.reorderList(input);
+    assertEquals(expected, input);
+  }
+
+  @Test
+  void fiveElementReversalTestShouldReturnCorrectlySorted() {
+    ListNode input = ListNode.build(List.of(1, 2, 3, 4, 5));
+    ListNode expected = ListNode.build(List.of(1, 5, 2, 4, 3));
     ReorderList.reorderList(input);
     assertEquals(expected, input);
   }
