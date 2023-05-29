@@ -5,12 +5,10 @@ class ReorderList {
   private ReorderList() {}
 
   public static void reorderList(ListNode head) {
-    if (head == null || head.next == null) {
-    } else {
-      ListNode current = head;
-      ListNode tail = detachLastNode(current);
-      ListNode next = current.next;
-      current.next = tail;
+    if (head != null && head.next != null) {
+      ListNode tail = detachLastNode(head);
+      ListNode next = head.next;
+      head.next = tail;
       tail.next = next;
       reorderList(next);
     }
