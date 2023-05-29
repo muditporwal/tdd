@@ -12,6 +12,7 @@ class ReorderList {
       ListNode next = current.next;
       current.next = tail;
       tail.next = next;
+      reorderList(next);
     }
   }
 
