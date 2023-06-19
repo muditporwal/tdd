@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test;
 class RoadTripAltitudeGainTest {
 
   @Test
-  public void testNoGainShouldReturn0() {
+  void testNoGainShouldReturn0() {
     int[] gain = new int[0];
     int largestAltitude = RoadTripAltitudeGain.largestAltitude(gain);
     assertEquals(0, largestAltitude);
   }
 
   @Test
-  public void testSinglePositiveGainShouldReturnGainValue() {
+  void testSinglePositiveGainShouldReturnGainValue() {
     int[] gain = new int[1];
     gain[0] = 4;
     int largestAltitude = RoadTripAltitudeGain.largestAltitude(gain);
@@ -22,7 +22,7 @@ class RoadTripAltitudeGainTest {
   }
 
   @Test
-  public void testSingleNegativeGainShouldReturn0() {
+  void testSingleNegativeGainShouldReturn0() {
     int[] gain = new int[1];
     gain[0] = -4;
     int largestAltitude = RoadTripAltitudeGain.largestAltitude(gain);
@@ -30,7 +30,7 @@ class RoadTripAltitudeGainTest {
   }
 
   @Test
-  public void testMultiplePositiveGainShouldReturnSumValue() {
+  void testMultiplePositiveGainShouldReturnSumValue() {
     int[] gain = new int[] {1, 2};
     int largestAltitude = RoadTripAltitudeGain.largestAltitude(gain);
     assertEquals(3, largestAltitude);
