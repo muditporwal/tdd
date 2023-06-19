@@ -12,4 +12,12 @@ class RoadTripAltitudeGainTest {
     int largestAltitude = RoadTripAltitudeGain.largestAltitude(gain);
     assertEquals(0, largestAltitude);
   }
+
+  @Test
+  public void testSinglePositiveGainShouldReturnGainValue() {
+    int[] gain = new int[1];
+    gain[0] = 4;
+    int largestAltitude = RoadTripAltitudeGain.largestAltitude(gain);
+    assertEquals(gain[0], largestAltitude);
+  }
 }
