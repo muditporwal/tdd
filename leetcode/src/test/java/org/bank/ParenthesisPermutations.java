@@ -15,8 +15,20 @@ class ParenthesisPermutations {
   }
 
   static class MathExpression {
+    MathExpression right;
+    MathExpression left;
+    String operator;
+
+    public MathExpression(MathExpression right, MathExpression left, String operator) {
+      this.right = right;
+      this.left = left;
+      this.operator = operator;
+    }
+
     public static List<MathExpression> parse(String expression) {
-      return null;
+      if (expression == null || expression.length() == 0) return Collections.emptyList();
+      else if (!expression.contains("*") && !expression.contains("+") && !expression.contains("-"))
+        return Collections.singletonList(new MathExpression());
     }
   }
 }
