@@ -12,4 +12,11 @@ class ParenthesisPermutationsTest {
     List<Integer> output = ParenthesisPermutations.diffWaysToCompute("");
     assertEquals(0, output.size());
   }
+
+  @Test
+  void testSingleDigitExpressionShouldReturnTheDigit() {
+    List<Integer> output = ParenthesisPermutations.diffWaysToCompute("3");
+    assertEquals(1, output.size());
+    assertEquals(3, output.get(0));
+  }
 }
