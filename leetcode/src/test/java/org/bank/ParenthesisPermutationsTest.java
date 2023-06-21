@@ -19,4 +19,9 @@ class ParenthesisPermutationsTest {
     assertEquals(1, output.size());
     assertEquals(3, output.get(0));
   }
+
+  @Test
+  void testSingleExpressionShouldReturnOneEvaluation() {
+    List<Integer> output = ParenthesisPermutations.diffWaysToCompute("3*4");
+  }
 }
