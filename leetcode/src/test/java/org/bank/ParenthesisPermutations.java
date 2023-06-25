@@ -29,6 +29,7 @@ class ParenthesisPermutations {
       if (expression == null || expression.length() == 0) return Collections.emptyList();
       else if (!expression.contains("*") && !expression.contains("+") && !expression.contains("-"))
         return Collections.singletonList(new MathExpression());
+      return null;
     }
   }
 }
