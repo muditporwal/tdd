@@ -28,11 +28,11 @@ class ParenthesisPermutations {
       if (expression == null || expression.length() == 0) return Collections.emptyList();
       if (expression.contains("+") || expression.contains("-") || expression.contains("/")) {
         return null;
-      } else return null;
+      } else return Collections.singletonList(new MathExpression(Integer.parseInt(expression)));
     }
 
     public Integer evaluate() {
-      // TODO
+      if (operator == null) return value;
       return null;
     }
 
