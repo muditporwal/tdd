@@ -40,6 +40,7 @@ class ParenthesisPermutationsTest {
       if ('*' == expression.charAt(i)) {
         System.out.println(expression.substring(i + 1));
         System.out.println(expression.substring(0, i));
+        System.out.println(expression.substring(i, i));
       }
     }
   }

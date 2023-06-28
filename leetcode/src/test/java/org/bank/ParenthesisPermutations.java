@@ -15,9 +15,9 @@ class ParenthesisPermutations {
   }
 
   static class MathExpression {
-    MathExpression right;
+    List<MathExpression> right;
 
-    MathExpression left;
+    List<MathExpression> left;
     String operator;
     int value;
 
@@ -28,16 +28,20 @@ class ParenthesisPermutations {
     public static List<MathExpression> expressionBuilder(String expression) {
       if (expression == null || expression.length() == 0) return Collections.emptyList();
       if (expression.contains("+") || expression.contains("-") || expression.contains("/")) {
-        ArrayList<MathExpression> exp = new ArrayList<>();
+        ArrayList<MathExpression> expList = new ArrayList<>();
         for (int i = 0; i < expression.toCharArray().length; i++) {
           if (expression.contains("+") || expression.contains("-") || expression.contains("/")) {
-            MathExpression exp = expression.substring(0, i);
-            expression.substring(0, i - 1);
+            List<MathExpression> right = expressionBuilder(expression.substring(0, i));
+            List<MathExpression> left = expressionBuilder(expression.substring(i + 1));
           }
         }
         return null;
 
       } else return Collections.singletonList(new MathExpression(Integer.parseInt(expression)));
+    }
+
+    private static MathExpression parse(String substring) {
+      return null;
     }
 
     public Integer evaluate() {
