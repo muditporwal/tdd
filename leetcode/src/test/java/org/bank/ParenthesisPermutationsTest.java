@@ -32,4 +32,13 @@ class ParenthesisPermutationsTest {
     assertEquals(1, output.size());
     assertEquals(12, output.get(0));
   }
+
+  @Test
+  void testSubstring() {
+    String expression = "3*4";
+    for (int i = 0; i < expression.toCharArray().length; i++) {
+      System.out.println(expression.substring(i + 1));
+      System.out.println(expression.substring(0, i - 1));
+    }
+  }
 }
