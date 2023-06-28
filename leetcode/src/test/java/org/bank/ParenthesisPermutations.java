@@ -1,34 +1,30 @@
 package org.bank;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 class ParenthesisPermutations {
   public static List<Integer> diffWaysToCompute(String expression) {
-    if (expression == null || expression.length() == 0) return Collections.emptyList();
-    else if (!expression.contains("*") && !expression.contains("+") && !expression.contains("-"))
-      return Collections.singletonList(Integer.valueOf(expression));
-    else {
-      List<MathExpression> mexp = MathExpression.parse(expression);
-      return null;
-    }
+    List<MathExpression> mathExpressions = MathExpression.expressionBuilder(expression);
+    return Objects.requireNonNull(mathExpressions).stream()
+        .map(MathExpression::evaluate)
+        .collect(Collectors.toList());
   }
 
   static class MathExpression {
-    String right;
+    MathExpression right;
 
-    String left;
+    MathExpression left;
     String operator;
-    Integer value;
 
-    public MathExpression(Integer value) {
-      this.value = value;
+    public static List<MathExpression> expressionBuilder(String expression) {
+      // TODO
+      return null;
     }
 
-    public static List<MathExpression> parse(String expression) {
-      if (expression == null || expression.length() == 0) return Collections.emptyList();
-      else if (!expression.contains("*") && !expression.contains("+") && !expression.contains("-"))
-        return Collections.singletonList(new MathExpression(Integer.valueOf(expression)));
+    public Integer evaluate() {
+      // TODO
       return null;
     }
   }
