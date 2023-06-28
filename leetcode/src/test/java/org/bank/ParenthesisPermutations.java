@@ -1,5 +1,6 @@
 package org.bank;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -17,15 +18,26 @@ class ParenthesisPermutations {
 
     MathExpression left;
     String operator;
+    int value;
+
+    public MathExpression(int value) {
+      this.value = value;
+    }
 
     public static List<MathExpression> expressionBuilder(String expression) {
-      // TODO
-      return null;
+      if (expression == null || expression.length() == 0) return Collections.emptyList();
+      if (expression.contains("+") || expression.contains("-") || expression.contains("/")) {
+        return null;
+      } else return null;
     }
 
     public Integer evaluate() {
       // TODO
       return null;
+    }
+
+    public int getValue() {
+      return value;
     }
   }
 }

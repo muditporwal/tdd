@@ -14,6 +14,12 @@ class ParenthesisPermutationsTest {
   }
 
   @Test
+  void testMathExpressionInitializationWithNumberAlone() {
+    ParenthesisPermutations.MathExpression me = new ParenthesisPermutations.MathExpression(1);
+    assertEquals(1, me.getValue());
+  }
+
+  @Test
   void testSingleDigitExpressionShouldReturnTheDigit() {
     List<Integer> output = ParenthesisPermutations.diffWaysToCompute("3");
     assertEquals(1, output.size());
