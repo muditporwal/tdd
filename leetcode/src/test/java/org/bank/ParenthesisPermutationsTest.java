@@ -35,10 +35,12 @@ class ParenthesisPermutationsTest {
 
   @Test
   void testSubstring() {
-    String expression = "3*4";
+    String expression = "113+2*41+1";
     for (int i = 0; i < expression.toCharArray().length; i++) {
-      System.out.println(expression.substring(i + 1));
-      System.out.println(expression.substring(0, i - 1));
+      if ('*' == expression.charAt(i)) {
+        System.out.println(expression.substring(i + 1));
+        System.out.println(expression.substring(0, i));
+      }
     }
   }
 }
