@@ -28,12 +28,19 @@ class ParenthesisPermutations {
       if (expression == null || expression.length() == 0) return Collections.emptyList();
       if (expression.contains("+") || expression.contains("-") || expression.contains("/")) {
         return null;
+        // TODO see how to return multiple expressions
       } else return Collections.singletonList(new MathExpression(Integer.parseInt(expression)));
     }
 
     public Integer evaluate() {
       if (operator == null) return value;
-      return null;
+      else
+        return switch (operator) {
+          case "+" -> right.evaluate() + left.evaluate();
+          case "-" -> right.evaluate() - left.evaluate();
+          case "*" -> right.evaluate() * left.evaluate();
+          default -> throw new IllegalStateException("Invalid operator");
+        };
     }
 
     public int getValue() {
