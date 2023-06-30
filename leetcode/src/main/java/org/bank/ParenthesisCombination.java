@@ -1,5 +1,7 @@
 package org.bank;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -61,21 +63,40 @@ class ParenthesisCombination {
   }
 
   public static class BracketParser {
-    private final String expression;
-
-    public BracketParser(String expression) {
-      this.expression = expression;
+    public static List<Expression> parse(String expression) {
+      if (expression == null || expression.isEmpty()) return Collections.emptyList();
+      if (expression.contains("+") || expression.contains("-") || expression.contains("*")) {
+        char[] charArray = expression.toCharArray();
+        ArrayList<Expression> expressions = new ArrayList<>();
+        for (int i = 0; i < charArray.length; i++) {
+          char c = charArray[i];
+          if (c == '+' || c == '-' || c == '*') {
+            String left = getLeftSubstring(expression, i);
+            String right = getRightSubstring(expression, i);
+            String op = String.valueOf(c);
+            List<Expression> leftExps = parse(left);
+            List<Expression> rightExps = parse(right);
+            List<Operator> list =
+                leftExps.stream()
+                    .map(
+                        lexp ->
+                            rightExps.stream().map(rexp -> new Operator(lexp, op, rexp)).toList())
+                    .flatMap(Collection::stream)
+                    .toList();
+            expressions.addAll(list);
+          }
+        }
+        return expressions;
+      } else {
+        return Collections.singletonList(new Num(Integer.parseInt(expression)));
+      }
     }
 
-    public List<Expression> parse() {
-      if (this.expression == null || expression.isEmpty()) return Collections.emptyList();
-      char[] charArray = this.expression.toCharArray();
-      //      for (int i = 0; i < charArray.length; i++) {
-      //        char c = charArray[i];
-      //        if(c == '+' || c == '-' || c == '*'){
-      //
-      //        }
-      //      }
+    private static String getRightSubstring(String expression, int i) {
+      return null;
+    }
+
+    private static String getLeftSubstring(String expression, int i) {
       return null;
     }
   }
