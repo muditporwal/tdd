@@ -69,6 +69,13 @@ class ParenthesisCombination {
 
     public List<Expression> parse() {
       if (this.expression == null || expression.isEmpty()) return Collections.emptyList();
+      char[] charArray = this.expression.toCharArray();
+      //      for (int i = 0; i < charArray.length; i++) {
+      //        char c = charArray[i];
+      //        if(c == '+' || c == '-' || c == '*'){
+      //
+      //        }
+      //      }
       return null;
     }
   }
