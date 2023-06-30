@@ -36,13 +36,13 @@ class ParenthesisCombination {
     }
   }
 
-  class Operator implements Expression {
+  static class Operator implements Expression {
 
     private final Expression left;
     private final Expression right;
     private final String op;
 
-    public Operator(Expression left, Expression right, String op) {
+    public Operator(Expression left, String op, Expression right) {
       this.left = left;
       this.right = right;
       this.op = op;
