@@ -94,4 +94,22 @@ class ParenthesisCombinationTest {
     String rightSubstring = BracketParser.getRightSubstring(expression, index);
     Assertions.assertEquals("1-2-2-3", rightSubstring);
   }
+
+  @Test
+  void testParenthesisCombinationInterface() {
+    ParenthesisCombination pc = new ParenthesisCombination();
+    List<Integer> values;
+    values = pc.diffWaysToCompute("");
+    Assertions.assertEquals(0, values.size());
+    values = pc.diffWaysToCompute("24");
+    Assertions.assertEquals(1, values.size());
+    Assertions.assertTrue(values.contains(24));
+    values = pc.diffWaysToCompute("2*4");
+    Assertions.assertEquals(1, values.size());
+    Assertions.assertTrue(values.contains(8));
+    values = pc.diffWaysToCompute("1-2*4");
+    Assertions.assertEquals(2, values.size());
+    Assertions.assertTrue(values.contains(-7));
+    Assertions.assertTrue(values.contains(-4));
+  }
 }
