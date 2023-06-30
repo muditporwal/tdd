@@ -1,5 +1,6 @@
 package org.bank;
 
+import java.util.Collections;
 import java.util.List;
 
 class ParenthesisCombination {
@@ -18,15 +19,15 @@ class ParenthesisCombination {
     this.expression = expression;
   }
 
-  private interface Expression {
+  interface Expression {
     Integer evaluate();
   }
 
-  static class Number implements Expression {
+  static class Num implements Expression {
 
     int value;
 
-    public Number(int value) {
+    public Num(int value) {
       this.value = value;
     }
 
@@ -56,6 +57,19 @@ class ParenthesisCombination {
         case "*" -> left.evaluate() * right.evaluate();
         default -> throw new IllegalStateException("Unexpected value: " + this.op);
       };
+    }
+  }
+
+  public static class BracketParser {
+    private final String expression;
+
+    public BracketParser(String expression) {
+      this.expression = expression;
+    }
+
+    public List<Expression> parse() {
+      if (this.expression == null || expression.isEmpty()) return Collections.emptyList();
+      return null;
     }
   }
 }

@@ -1,5 +1,6 @@
 package org.bank;
 
+import static org.bank.ParenthesisCombination.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
@@ -24,17 +25,17 @@ class ParenthesisCombinationTest {
 
   @Test
   void creatingNumberExpression() {
-    ParenthesisCombination.Number number = new ParenthesisCombination.Number(12);
+    Num number = new Num(12);
     assertEquals(12, number.evaluate());
   }
 
   @Test
   void createSimpleOperatorExpression() {
-    ParenthesisCombination.Number one = new ParenthesisCombination.Number(1);
-    ParenthesisCombination.Number two = new ParenthesisCombination.Number(2);
-    ParenthesisCombination.Operator plus = new ParenthesisCombination.Operator(one, "+", two);
-    ParenthesisCombination.Operator minus = new ParenthesisCombination.Operator(two, "-", one);
-    ParenthesisCombination.Operator multiply = new ParenthesisCombination.Operator(two, "*", one);
+    Num one = new Num(1);
+    Num two = new Num(2);
+    Operator plus = new Operator(one, "+", two);
+    Operator minus = new Operator(two, "-", one);
+    Operator multiply = new Operator(two, "*", one);
     Assertions.assertEquals(3, plus.evaluate());
     Assertions.assertEquals(1, minus.evaluate());
     Assertions.assertEquals(2, multiply.evaluate());
@@ -42,14 +43,25 @@ class ParenthesisCombinationTest {
 
   @Test
   void createNestedOperatorExpression() {
-    ParenthesisCombination.Number one = new ParenthesisCombination.Number(1);
-    ParenthesisCombination.Number two = new ParenthesisCombination.Number(2);
-    ParenthesisCombination.Operator plus = new ParenthesisCombination.Operator(one, "+", two);
-    ParenthesisCombination.Operator multiply = new ParenthesisCombination.Operator(two, "*", one);
-    ParenthesisCombination.Operator nestedPlus =
-        new ParenthesisCombination.Operator(plus, "+", multiply);
+    Num one = new Num(1);
+    Num two = new Num(2);
+    Operator plus = new Operator(one, "+", two);
+    Operator multiply = new Operator(two, "*", one);
+    Operator nestedPlus = new Operator(plus, "+", multiply);
     Assertions.assertEquals(3, plus.evaluate());
     Assertions.assertEquals(2, multiply.evaluate());
     Assertions.assertEquals(5, nestedPlus.evaluate());
+  }
+
+  @Test
+  void givenStringExpressionConvertToListOfOperatorExpressions() {}
+
+  @Test
+  void givenEmptyStringShouldReturnEmptyListOfOperatorExpression() {
+    String expression = "";
+    BracketParser bp = new BracketParser(expression);
+    List<Expression> exps = bp.parse();
+    Assertions.assertNotNull(exps);
+    Assertions.assertEquals(0, exps.size());
   }
 }
