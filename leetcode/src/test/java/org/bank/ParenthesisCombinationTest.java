@@ -11,18 +11,12 @@ class ParenthesisCombinationTest {
   }
 
   //  TODO
-  //   1. Find out Tree DataStructure for Java
+  //   1. Find out Tree DataStructure for Java - Need to implement what you need
   //   2. Figure out how to parse string into `left operator right`
   //   3. CreateOutline for computation
   //   4. Identify output format for parsing
   //   5. WriteTest Functions for parsing
   //   6. Indentify ouput format for evaluation of parsed value
   //   7. Algorithm for evaluation
-  private class ParenthesisCombination {
-    public ParenthesisCombination() {}
 
-    public List<Integer> diffWaysToCompute(String s) {
-      return null;
-    }
-  }
 }
