@@ -92,12 +92,12 @@ class ParenthesisCombination {
       }
     }
 
-    private static String getRightSubstring(String expression, int i) {
-      return null;
+    static String getRightSubstring(String expression, int i) {
+      return expression.substring(i + 1);
     }
 
-    private static String getLeftSubstring(String expression, int i) {
-      return null;
+    static String getLeftSubstring(String expression, int i) {
+      return expression.substring(0, i);
     }
   }
 }
