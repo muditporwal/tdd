@@ -80,10 +80,18 @@ class ParenthesisCombinationTest {
   }
 
   @Test
-  void givenTheIndexOfTheOperatorGetTheLeftSubstring() {
+  void testLeftSubstring() {
     String expression = "3*2+3-1-2-2-3";
     int index = 5; // expected "3*2+3"
     String leftSubstring = BracketParser.getLeftSubstring(expression, index);
     Assertions.assertEquals("3*2+3", leftSubstring);
+  }
+
+  @Test
+  void testRightSubstring() {
+    String expression = "3*2+3-1-2-2-3";
+    int index = 5; // expected "1-2-2-3"
+    String rightSubstring = BracketParser.getRightSubstring(expression, index);
+    Assertions.assertEquals("1-2-2-3", rightSubstring);
   }
 }
