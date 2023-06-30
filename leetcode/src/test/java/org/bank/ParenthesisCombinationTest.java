@@ -29,7 +29,7 @@ class ParenthesisCombinationTest {
   }
 
   @Test
-  void createOperatorExpression() {
+  void createSimpleOperatorExpression() {
     ParenthesisCombination.Number one = new ParenthesisCombination.Number(1);
     ParenthesisCombination.Number two = new ParenthesisCombination.Number(2);
     ParenthesisCombination.Operator plus = new ParenthesisCombination.Operator(one, "+", two);
@@ -38,5 +38,18 @@ class ParenthesisCombinationTest {
     Assertions.assertEquals(3, plus.evaluate());
     Assertions.assertEquals(1, minus.evaluate());
     Assertions.assertEquals(2, multiply.evaluate());
+  }
+
+  @Test
+  void createNestedOperatorExpression() {
+    ParenthesisCombination.Number one = new ParenthesisCombination.Number(1);
+    ParenthesisCombination.Number two = new ParenthesisCombination.Number(2);
+    ParenthesisCombination.Operator plus = new ParenthesisCombination.Operator(one, "+", two);
+    ParenthesisCombination.Operator multiply = new ParenthesisCombination.Operator(two, "*", one);
+    ParenthesisCombination.Operator nestedPlus =
+        new ParenthesisCombination.Operator(plus, "+", multiply);
+    Assertions.assertEquals(3, plus.evaluate());
+    Assertions.assertEquals(2, multiply.evaluate());
+    Assertions.assertEquals(5, nestedPlus.evaluate());
   }
 }
