@@ -22,7 +22,7 @@ class ParenthesisCombination {
     Integer evaluate();
   }
 
-  private class Number implements Expression {
+  static class Number implements Expression {
 
     int value;
 
@@ -36,25 +36,25 @@ class ParenthesisCombination {
     }
   }
 
-  private class Operator implements Expression {
+  class Operator implements Expression {
 
-      private final Expression left;
-      private final Expression right;
-      private final String op;
+    private final Expression left;
+    private final Expression right;
+    private final String op;
 
-      public Operator(Expression left, Expression right, String op) {
-          this.left = left;
-          this.right = right;
-          this.op = op;
-      }
+    public Operator(Expression left, Expression right, String op) {
+      this.left = left;
+      this.right = right;
+      this.op = op;
+    }
 
-      @Override
+    @Override
     public Integer evaluate() {
       return switch (this.op) {
-          case "+" -> left.evaluate() + right.evaluate();
-          case "-" -> left.evaluate() - right.evaluate();
-          case "*" -> left.evaluate() * right.evaluate();
-          default -> throw new IllegalStateException("Unexpected value: " + this.op);
+        case "+" -> left.evaluate() + right.evaluate();
+        case "-" -> left.evaluate() - right.evaluate();
+        case "*" -> left.evaluate() * right.evaluate();
+        default -> throw new IllegalStateException("Unexpected value: " + this.op);
       };
     }
   }
