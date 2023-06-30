@@ -58,18 +58,14 @@ class ParenthesisCombinationTest {
 
   @Test
   void givenEmptyString_ShouldReturnEmptyListOfOperatorExpression() {
-    String expression = "";
-    BracketParser bp = new BracketParser(expression);
-    List<Expression> exps = bp.parse();
+    List<Expression> exps = BracketParser.parse("");
     Assertions.assertNotNull(exps);
     Assertions.assertEquals(0, exps.size());
   }
 
   @Test
   void givenNumberString_ShouldReturnListWithSingleNumberExpression() {
-    String expression = "34";
-    BracketParser bp = new BracketParser(expression);
-    List<Expression> exps = bp.parse();
+    List<Expression> exps = BracketParser.parse("34");
     Assertions.assertNotNull(exps);
     Assertions.assertEquals(1, exps.size());
     Assertions.assertEquals(34, exps.get(0).evaluate());
@@ -77,10 +73,9 @@ class ParenthesisCombinationTest {
 
   @Test
   void givenSingleOperatorString_ShouldReturnListWithSingleOperatorExpression() {
-    String expression = "3*4";
-    BracketParser bp = new BracketParser(expression);
-    List<Expression> exps = bp.parse();
+    List<Expression> exps = BracketParser.parse("3*4");
     Assertions.assertNotNull(exps);
     Assertions.assertEquals(1, exps.size());
+    Assertions.assertEquals(12, exps.get(0).evaluate());
   }
 }
