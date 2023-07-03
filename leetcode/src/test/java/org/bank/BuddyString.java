@@ -6,8 +6,7 @@ public class BuddyString {
     else if (s.length() != goal.length()) return false;
     else {
       for (int i = 0; i < s.length(); i++) {
-        for (int j = 0; j < s.length(); j++) {
-          if (i != j){
+        for (int j = i+1 ; j < s.length(); j++) {
             char[] sChar = s.toCharArray();
             char swap = sChar[i];
             sChar[i] = sChar[j];
@@ -16,7 +15,6 @@ public class BuddyString {
             if (swapGoal.equals(goal)) {
               return true;
             }
-          }
         }
       }
       return false;

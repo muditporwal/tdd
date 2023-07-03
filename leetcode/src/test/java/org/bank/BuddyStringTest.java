@@ -32,7 +32,7 @@ class BuddyStringTest {
   @Test
   void whenInputStringIsLarge_CheckAndReturn() {
     assertTrue(BuddyString.buddyStrings("acdc", "acdc"));
-    assertTrue(BuddyString.buddyStrings("abba", "baab"));
+    assertFalse(BuddyString.buddyStrings("abba", "baab"));
     assertTrue(BuddyString.buddyStrings("fab", "baf"));
   }
 }
