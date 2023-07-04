@@ -1,6 +1,7 @@
 package org.bank;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 public class BuddyString {
@@ -25,18 +26,26 @@ public class BuddyString {
   }
 
   static boolean difference(String s, String goal) {
-    for (int i = 0; i < s.length(); i++) {
-      for (int j = i + 1; j < s.length(); j++) {
-        char[] sChar = s.toCharArray();
-        char swap = sChar[i];
-        sChar[i] = sChar[j];
-        sChar[j] = swap;
-        String swapGoal = String.copyValueOf(sChar);
-        if (swapGoal.equals(goal)) {
-          return true;
-        }
+    if (s.equals(goal)) return false;
+    int countOfDifferences = 0;
+    LinkedList<Integer> indices = new LinkedList<>();
+    int bound = (s.length() + 1) / 2;
+    for (int i = 0; i < bound; i++) {
+      if (s.charAt(i) != goal.charAt(i)) {
+        countOfDifferences++;
+        if (countOfDifferences > 2) return false;
+        else indices.add(i);
+      }
+
+      int revIndex = s.length() - (i + 1); // 0 based index and i starts at 0
+      if (s.charAt(revIndex) != goal.charAt(revIndex)) {
+        countOfDifferences++;
+        if (countOfDifferences > 2) return false;
+        else indices.add(revIndex);
       }
     }
-    return false;
+    if (countOfDifferences == 1) return false;
+    return s.charAt(indices.get(0)) == goal.charAt(indices.get(1))
+        && s.charAt(indices.get(1)) == goal.charAt(indices.get(0));
   }
 }
