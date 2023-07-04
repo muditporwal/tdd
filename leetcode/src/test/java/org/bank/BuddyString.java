@@ -8,11 +8,11 @@ public class BuddyString {
     if (s.isEmpty() || s.length() == 1) return false;
     else if (s.length() != goal.length()) return false;
     else {
-      return repeating(s, goal) || difference(s, goal);
+      return equalAndRepeating(s, goal) || difference(s, goal);
     }
   }
 
-  static boolean repeating(String s, String goal) {
+  static boolean equalAndRepeating(String s, String goal) {
     if (!s.equals(goal))
       return false; // If the strings are not equal, then no need to check for recurring characters
     Set<Character> characters = new HashSet<>();

@@ -39,5 +39,6 @@ class BuddyStringTest {
   @Test
   void whenInputStringRepeatingAndSame_ReturnTrue() {
     assertTrue(BuddyString.buddyStrings("aaaaaaacd", "aaaaaaacd"));
+    assertFalse(BuddyString.buddyStrings("acd", "acd"));
   }
 }
