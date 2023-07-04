@@ -19,7 +19,7 @@ public class BuddyString {
     int bound = s.length();
     for (int i = 0; i < bound; i++) {
       Character charAt = s.charAt(i);
-      characters.add(charAt); // Testing Repeating String
+      characters.add(charAt);
     }
     return goal.length() > characters.size(); // Implies there are recurring characters
   }
