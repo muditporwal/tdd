@@ -13,12 +13,13 @@ public class BuddyString {
   }
 
   static boolean repeating(String s, String goal) {
-    if (!s.equals(goal)) return false;
+    if (!s.equals(goal))
+      return false; // If the strings are not equal, then no need to check for recurring characters
     Set<Character> characters = new HashSet<>();
     int bound = s.length();
     for (int i = 0; i < bound; i++) {
       Character charAt = s.charAt(i);
-      characters.add(charAt);
+      characters.add(charAt); // Testing Repeating String
     }
     return goal.length() > characters.size(); // Implies there are recurring characters
   }
