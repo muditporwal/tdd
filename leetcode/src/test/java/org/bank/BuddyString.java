@@ -1,8 +1,6 @@
 package org.bank;
 
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Set;
 
 public class BuddyString {
   public static boolean buddyStrings(String s, String goal) {
@@ -16,13 +14,14 @@ public class BuddyString {
   static boolean equalAndRepeating(String s, String goal) {
     if (!s.equals(goal))
       return false; // If the strings are not equal, then no need to check for recurring characters
-    Set<Character> characters = new HashSet<>();
-    int bound = s.length();
-    for (int i = 0; i < bound; i++) {
-      Character charAt = s.charAt(i);
-      characters.add(charAt);
+    int[] frequency = new int[26];
+    for (char ch : s.toCharArray()) {
+      frequency[ch - 'a'] += 1;
+      if (frequency[ch - 'a'] == 2) {
+        return true;
+      }
     }
-    return goal.length() > characters.size(); // Implies there are recurring characters
+    return false;
   }
 
   static boolean difference(String s, String goal) {
