@@ -11,5 +11,7 @@ class StringDecoderTest {
     void testSingleCharacterDecode_ShouldEvaluateToTheSameCharacter() {
         String decoded = StringDecoder.decodeString("c");
         assertEquals("c",decoded);
+        decoded = StringDecoder.decodeString("abc");
+        assertEquals("abc",decoded);
     }
 }
