@@ -13,6 +13,15 @@ class StringDecoder {
         else return new StringExpression(s);
     }
 
+    static String getPostString(String s) {
+        return null;
+    }
+
+    static String getPreString(String s) {
+        int from = s.indexOf("[");
+
+    }
+
     static String getInnerString(String s) {
         int from = s.indexOf("[");
         int to = s.lastIndexOf("]");
@@ -35,9 +44,7 @@ class StringDecoder {
             this.rep = rep;
             this.val = val;
         }
-
         String preString;
-
         String postString;
         int rep;
         Expression val;

@@ -67,6 +67,24 @@ class StringDecoderTest {
     }
 
     @Test
+    void testParseRepStringWithPreAndPostStringToStringExp(){
+        String c = "a3[C]d";
+        StringDecoder.Expression parse = StringDecoder.parse(c);
+        assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
+        assertEquals("aCCCd", parse.evaluate());
+    }
+
+    @Test
+    void testGetPreString(){
+        String c = "ac3[C]d";
+        String preString = StringDecoder.getPreString(c);
+        assertEquals("ac", preString);
+        c = "a3[C]d";
+        preString = StringDecoder.getPreString(c);
+        assertEquals("a", preString);
+    }
+
+    @Test
     void testGetRepCount(){
         String c = "3[C]";
         int repCount = StringDecoder.getRepCount(c);
