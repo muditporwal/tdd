@@ -19,7 +19,7 @@ class StringDecoder {
 
     static String getPreString(String s) {
         int from = s.indexOf("[");
-
+        return null;
     }
 
     static String getInnerString(String s) {
