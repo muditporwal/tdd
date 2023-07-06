@@ -24,6 +24,13 @@ class StringDecoderTest {
     }
 
     @Test
+    void testComplexTestScenario_shouldEvaluateToRecurringCharacter(){
+        String decoded = StringDecoder.decodeString("3[a2[c]]");
+        assertEquals("accaccacc",decoded);
+    }
+
+
+    @Test
     void testEvaluationOfStringExpression(){
         StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
         assertEquals("C",exp.evaluate());
@@ -34,6 +41,13 @@ class StringDecoderTest {
         StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
         StringDecoder.Expression repExp = new StringDecoder.RepExpression(3,exp );
         assertEquals("CCC",repExp.evaluate());
+    }
+
+    @Test
+    void testEvaluationOfRepExpressionWithPreAndPostString(){
+        StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
+        StringDecoder.Expression repExp = new StringDecoder.RepExpression("A",3,exp,"BABA" );
+        assertEquals("ACCCBABA",repExp.evaluate());
     }
 
     @Test

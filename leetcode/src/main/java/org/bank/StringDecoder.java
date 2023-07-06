@@ -29,7 +29,16 @@ class StringDecoder {
         String evaluate();
     }
     static class RepExpression implements Expression {
+        public RepExpression(String preString, int rep, Expression val, String postString) {
+            this.preString = preString;
+            this.postString = postString;
+            this.rep = rep;
+            this.val = val;
+        }
 
+        String preString;
+
+        String postString;
         int rep;
         Expression val;
 
@@ -41,9 +50,11 @@ class StringDecoder {
         @Override
         public String evaluate() {
             StringBuilder sb = new StringBuilder();
+            if(preString!=null && !preString.isEmpty()) sb.append(preString);
             for(int i = 0; i < rep; i++) {
              sb.append(val.evaluate());
             }
+            if(postString!=null && !postString.isEmpty()) sb.append(postString);
             return sb.toString();
         }
     }
