@@ -4,14 +4,13 @@ import java.util.Objects;
 
 class StringDecoder {
     public static String decodeString(String s) {
-        if(s.contains("[")) {
             Expression exp = parse(s);
             return Objects.requireNonNull(exp).evaluate();
-    } else   return s;
     }
 
-    private static Expression parse(String s) {
-        return null;
+    static Expression parse(String s) {
+        if(s.contains("[")) { return null;}
+        else return new StringExpression(s);
     }
 
     interface Expression {

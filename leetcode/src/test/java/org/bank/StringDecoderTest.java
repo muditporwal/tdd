@@ -2,6 +2,8 @@ package org.bank;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Objects;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -36,6 +38,10 @@ class StringDecoderTest {
 
     @Test
     void testParseSimpleStringToStringExp(){
+        String c = "C";
+        StringDecoder.Expression parse = StringDecoder.parse(c);
+        assertEquals(StringDecoder.StringExpression.class, Objects.requireNonNull(parse).getClass());
+
 
     }
 }
