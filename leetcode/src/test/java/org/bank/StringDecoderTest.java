@@ -25,6 +25,17 @@ class StringDecoderTest {
     void testEvaluationOfStringExpression(){
         StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
         assertEquals("C",exp.evaluate());
+    }
+
+    @Test
+    void testEvaluationOfRepExpression(){
+        StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
+        StringDecoder.Expression repExp = new StringDecoder.RepExpression(3,exp );
+        assertEquals("CCC",repExp.evaluate());
+    }
+
+    @Test
+    void testParseSimpleStringToStringExp(){
 
     }
 }
