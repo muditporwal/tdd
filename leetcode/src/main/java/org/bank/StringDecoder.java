@@ -14,15 +14,15 @@ class StringDecoder {
     }
 
     static String getInnerString(String s) {
-        return null;
+        int from = s.indexOf("[");
+        int to = s.lastIndexOf("]");
+        return s.substring(from+1,to);
     }
 
     static int getRepCount(String s) {
         int from = s.indexOf("[");
-        int to = s.lastIndexOf("]");
-        System.out.println("from and to " + from + ":"+ to);
-
-        return 0;
+        String count = s.substring(0,from);
+        return Integer.parseInt(count);
     }
 
     interface Expression {
