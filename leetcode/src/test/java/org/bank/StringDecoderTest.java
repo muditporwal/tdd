@@ -51,4 +51,11 @@ class StringDecoderTest {
         assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
         assertEquals("CCC", parse.evaluate());
     }
+
+    @Test
+    void testGetRepCount(){
+        String c = "3[C]";
+        int repCount = StringDecoder.getRepCount(c);
+        assertEquals(3,repCount);
+    }
 }

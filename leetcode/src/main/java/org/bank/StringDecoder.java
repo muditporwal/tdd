@@ -18,6 +18,10 @@ class StringDecoder {
     }
 
     static int getRepCount(String s) {
+        int from = s.indexOf("[");
+        int to = s.lastIndexOf("]");
+        System.out.println("from and to " + from + ":"+ to);
+
         return 0;
     }
 
