@@ -14,13 +14,18 @@ class StringDecoder {
         return null;
     }
 
-    private interface Expression {
+    interface Expression {
         String evaluate();
     }
-    private static class StringExpression implements Expression {
+    static class RepExpression implements Expression {
 
         int rep;
         Expression val;
+
+        public RepExpression(int rep, Expression val) {
+            this.rep = rep;
+            this.val = val;
+        }
 
         @Override
         public String evaluate() {
@@ -32,4 +37,16 @@ class StringDecoder {
         }
     }
 
+  static class StringExpression implements Expression {
+
+        String value;
+     public StringExpression(String value) {
+         this.value = value;
+     }
+
+      @Override
+      public String evaluate() {
+          return value;
+      }
+  }
 }

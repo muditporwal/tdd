@@ -20,4 +20,11 @@ class StringDecoderTest {
         String decoded = StringDecoder.decodeString("3[c]");
         assertEquals("ccc",decoded);
     }
+
+    @Test
+    void testEvaluationOfStringExpression(){
+        StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
+        assertEquals("C",exp.evaluate());
+
+    }
 }
