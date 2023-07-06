@@ -4,13 +4,21 @@ import java.util.Objects;
 
 class StringDecoder {
     public static String decodeString(String s) {
-            Expression exp = parse(s);
-            return Objects.requireNonNull(exp).evaluate();
+        Expression exp = parse(s);
+        return Objects.requireNonNull(exp).evaluate();
     }
 
     static Expression parse(String s) {
-        if(s.contains("[")) { return null;}
+        if(s.contains("[")) { return new RepExpression(getRepCount(s), parse(getInnerString(s)));}
         else return new StringExpression(s);
+    }
+
+    static String getInnerString(String s) {
+        return null;
+    }
+
+    static int getRepCount(String s) {
+        return 0;
     }
 
     interface Expression {

@@ -41,7 +41,14 @@ class StringDecoderTest {
         String c = "C";
         StringDecoder.Expression parse = StringDecoder.parse(c);
         assertEquals(StringDecoder.StringExpression.class, Objects.requireNonNull(parse).getClass());
+        assertEquals("C", parse.evaluate());
+    }
 
-
+    @Test
+    void testParseRepStringToStringExp(){
+        String c = "3[C]";
+        StringDecoder.Expression parse = StringDecoder.parse(c);
+        assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
+        assertEquals("CCC", parse.evaluate());
     }
 }
