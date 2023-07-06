@@ -14,12 +14,17 @@ class StringDecoder {
     }
 
     static String getPostString(String s) {
-        return null;
+        int to = s.lastIndexOf("]");
+        return s.substring(to+1);
     }
 
     static String getPreString(String s) {
-        int from = s.indexOf("[");
-        return null;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.toCharArray().length; i++) {
+           if( Character.isDigit(s.charAt(i))) break;
+           else sb.append(s.charAt(i));
+        }
+        return sb.toString();
     }
 
     static String getInnerString(String s) {

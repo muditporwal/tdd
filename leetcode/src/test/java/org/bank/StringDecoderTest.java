@@ -85,6 +85,16 @@ class StringDecoderTest {
     }
 
     @Test
+    void testGetPostString(){
+        String c = "ac3[C]dd";
+        String postString = StringDecoder.getPostString(c);
+        assertEquals("dd", postString);
+        c = "a3[C]d";
+        postString = StringDecoder.getPostString(c);
+        assertEquals("d", postString);
+    }
+
+    @Test
     void testGetRepCount(){
         String c = "3[C]";
         int repCount = StringDecoder.getRepCount(c);
