@@ -14,4 +14,10 @@ class StringDecoderTest {
         decoded = StringDecoder.decodeString("abc");
         assertEquals("abc",decoded);
     }
+
+    @Test
+    void testSingleCharacterWithRecurrence_shouldEvaluateToRecurringCharacter(){
+        String decoded = StringDecoder.decodeString("3[c]");
+        assertEquals("ccc",decoded);
+    }
 }
