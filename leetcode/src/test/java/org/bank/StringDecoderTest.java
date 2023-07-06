@@ -59,7 +59,7 @@ class StringDecoderTest {
     }
 
     @Test
-    void testParseRepStringToStringExp(){
+    void testParseRepString(){
         String c = "3[C]";
         StringDecoder.Expression parse = StringDecoder.parse(c);
         assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
@@ -67,11 +67,19 @@ class StringDecoderTest {
     }
 
     @Test
-    void testParseRepStringWithPreAndPostStringToStringExp(){
+    void testParseRepStringWithPreAndPostString(){
         String c = "a3[C]d";
         StringDecoder.Expression parse = StringDecoder.parse(c);
         assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
         assertEquals("aCCCd", parse.evaluate());
+    }
+
+    @Test
+    void testParseRepeatingRepString(){
+        String c = "a3[C]dd3[D]";
+        StringDecoder.Expression parse = StringDecoder.parse(c);
+        assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
+        assertEquals("aCCCddDDD", parse.evaluate());
     }
 
     @Test
@@ -100,4 +108,6 @@ class StringDecoderTest {
         int repCount = StringDecoder.getRepCount(c);
         assertEquals(3,repCount);
     }
+
+
 }
