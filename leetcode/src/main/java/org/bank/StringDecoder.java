@@ -9,7 +9,7 @@ class StringDecoder {
     }
 
     static Expression parse(String s) {
-        if(s.contains("[")) { return new RepExpression(getRepCount(s), parse(getInnerString(s)));}
+        if(s.contains("[")) { return new RepExpression(getPreString(s),getRepCount(s), parse(getInnerString(s)),getPostString(s));}
         else return new StringExpression(s);
     }
 
@@ -36,7 +36,8 @@ class StringDecoder {
     static int getRepCount(String s) {
         int from = s.indexOf("[");
         String count = s.substring(0,from);
-        return Integer.parseInt(count);
+        String repCountString = count.replaceAll("[A-Za-z]", "");
+        return Integer.parseInt(repCountString);
     }
 
     interface Expression {
