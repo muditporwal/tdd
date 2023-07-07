@@ -30,6 +30,7 @@ class StringDecoder {
             }
         }
         if(tokens.size() > 1) {
+            tokens.add(String.copyValueOf(charArray, lastIndex, charArray.length - lastIndex));
             List<Expression> list = tokens.stream().map(StringDecoder::parse).toList();
             return new RepeatingExpressions(list);
             }

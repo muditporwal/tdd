@@ -31,6 +31,12 @@ class StringDecoderTest {
         assertEquals("accaccacc",decoded);
     }
 
+    @Test
+    void testRepeatingComplexTestScenario(){
+        String decoded = StringDecoder.decodeString("a3[a2[c]]b3[a2[c]]dd");
+        assertEquals("aaccaccaccbaccaccaccdd",decoded);
+    }
+
 
     @Test
     void testEvaluationOfStringExpression(){
