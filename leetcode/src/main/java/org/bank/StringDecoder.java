@@ -96,8 +96,7 @@ class StringDecoder {
 
         @Override
         public String evaluate() {
-            return null;
-            //return expressions.stream().map(Expression::evaluate).reduce(String::concat).orElse("");
+            return expressions.stream().map(Expression::evaluate).reduce(String::concat).orElse("");
         }
     }
 }
