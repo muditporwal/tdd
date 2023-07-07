@@ -41,7 +41,7 @@ class StringDecoderTest {
     @Test
     void testEvaluationOfRepExpression(){
         Expression exp = new StringDecoder.StringExpression("C");
-        Expression repExp = new StringDecoder.ComplexExpression(3,exp );
+        Expression repExp = new StringDecoder.ComplexExpression(null,3,exp ,null);
         assertEquals("CCC",repExp.evaluate());
     }
 

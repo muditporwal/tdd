@@ -5,6 +5,7 @@ import java.util.*;
 class StringDecoder {
     public static String decodeString(String s) {
         Expression exp = parse(s);
+
         return Objects.requireNonNull(exp).evaluate();
     }
 
@@ -67,23 +68,7 @@ class StringDecoder {
     interface Expression {
         String evaluate();
     }
-    static class ComplexExpression implements Expression {
-        public ComplexExpression(String preString, int rep, Expression val, String postString) {
-            this.preString = preString;
-            this.postString = postString;
-            this.rep = rep;
-            this.val = val;
-        }
-        String preString;
-        String postString;
-        int rep;
-        Expression val;
-
-        public ComplexExpression(int rep, Expression val) {
-            this.rep = rep;
-            this.val = val;
-        }
-
+    static record ComplexExpression(String preString, int rep, Expression val, String postString) implements Expression {
         @Override
         public String evaluate() {
             StringBuilder sb = new StringBuilder();
@@ -96,27 +81,14 @@ class StringDecoder {
         }
     }
 
-  static class StringExpression implements Expression {
-
-        String value;
-     public StringExpression(String value) {
-         this.value = value;
-     }
-
+  static record StringExpression(String value) implements Expression {
       @Override
       public String evaluate() {
           return value;
       }
   }
 
-    static class RepeatingExpressions implements Expression {
-
-        List<Expression> expressions;
-
-        public RepeatingExpressions(List<Expression> expressions) {
-            this.expressions = expressions;
-        }
-
+    static record RepeatingExpressions(List<Expression> expressions) implements Expression {
         @Override
         public String evaluate() {
             return expressions.stream().map(Expression::evaluate).reduce(String::concat).orElse("");
