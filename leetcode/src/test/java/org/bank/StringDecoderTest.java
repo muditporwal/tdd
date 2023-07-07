@@ -92,7 +92,7 @@ class StringDecoderTest {
     void testParseRepeatingRepString(){
         String c = "a3[C]dd3[D]";
         Expression parse = StringDecoder.parse(c);
-        assertEquals(StringDecoder.ComplexExpression.class, Objects.requireNonNull(parse).getClass());
+        assertEquals(StringDecoder.RepeatingExpressions.class, Objects.requireNonNull(parse).getClass());
         assertEquals("aCCCddDDD", parse.evaluate());
     }
 

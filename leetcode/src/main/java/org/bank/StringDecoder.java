@@ -1,7 +1,6 @@
 package org.bank;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 class StringDecoder {
     public static String decodeString(String s) {
@@ -10,7 +9,31 @@ class StringDecoder {
     }
 
     static Expression parse(String s) {
-        if(s.contains("[")) { return new ComplexExpression(getPreString(s),getRepCount(s), parse(getInnerString(s)),getPostString(s));}
+        if(s.contains("[")) {
+        Deque<Character> deque = new LinkedList<>();
+        char[] charArray = s.toCharArray();
+        List<String> tokens = new ArrayList<>();
+        int lastIndex = 0;
+        for (int i = 0, charArrayLength = charArray.length; i < charArrayLength; i++) {
+            char ch = charArray[i];
+            if (ch == '[') {
+                deque.addFirst(ch);
+            }
+            if (ch == ']') {
+                deque.removeFirst();
+                if (deque.isEmpty()){
+                    String current = String.copyValueOf(charArray, lastIndex, i + 1 - lastIndex);
+                    lastIndex = i+1;
+                    tokens.add(current);
+                }
+            }
+        }
+        if(tokens.size() > 1) {
+            List<Expression> list = tokens.stream().map(StringDecoder::parse).toList();
+            return new RepeatingExpressions(list);
+            }
+            else return new ComplexExpression(getPreString(s),getRepCount(s), parse(getInnerString(s)),getPostString(s));
+        }
         else return new StringExpression(s);
     }
 
