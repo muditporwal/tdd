@@ -1,5 +1,6 @@
 package org.bank;
 
+import java.util.List;
 import java.util.Objects;
 
 class StringDecoder {
@@ -9,7 +10,7 @@ class StringDecoder {
     }
 
     static Expression parse(String s) {
-        if(s.contains("[")) { return new RepExpression(getPreString(s),getRepCount(s), parse(getInnerString(s)),getPostString(s));}
+        if(s.contains("[")) { return new ComplexExpression(getPreString(s),getRepCount(s), parse(getInnerString(s)),getPostString(s));}
         else return new StringExpression(s);
     }
 
@@ -43,8 +44,8 @@ class StringDecoder {
     interface Expression {
         String evaluate();
     }
-    static class RepExpression implements Expression {
-        public RepExpression(String preString, int rep, Expression val, String postString) {
+    static class ComplexExpression implements Expression {
+        public ComplexExpression(String preString, int rep, Expression val, String postString) {
             this.preString = preString;
             this.postString = postString;
             this.rep = rep;
@@ -55,7 +56,7 @@ class StringDecoder {
         int rep;
         Expression val;
 
-        public RepExpression(int rep, Expression val) {
+        public ComplexExpression(int rep, Expression val) {
             this.rep = rep;
             this.val = val;
         }
@@ -84,4 +85,19 @@ class StringDecoder {
           return value;
       }
   }
+
+    static class RepeatingExpressions implements Expression {
+
+        List<Expression> expressions;
+
+        public RepeatingExpressions(List<Expression> expressions) {
+            this.expressions = expressions;
+        }
+
+        @Override
+        public String evaluate() {
+            return null;
+            //return expressions.stream().map(Expression::evaluate).reduce(String::concat).orElse("");
+        }
+    }
 }

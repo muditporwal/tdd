@@ -1,11 +1,13 @@
 package org.bank;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import org.bank.StringDecoder.Expression;
+import org.junit.jupiter.api.Test;
 
 class StringDecoderTest {
 
@@ -32,28 +34,40 @@ class StringDecoderTest {
 
     @Test
     void testEvaluationOfStringExpression(){
-        StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
+        Expression exp = new StringDecoder.StringExpression("C");
         assertEquals("C",exp.evaluate());
     }
 
     @Test
     void testEvaluationOfRepExpression(){
-        StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
-        StringDecoder.Expression repExp = new StringDecoder.RepExpression(3,exp );
+        Expression exp = new StringDecoder.StringExpression("C");
+        Expression repExp = new StringDecoder.ComplexExpression(3,exp );
         assertEquals("CCC",repExp.evaluate());
     }
 
     @Test
     void testEvaluationOfRepExpressionWithPreAndPostString(){
-        StringDecoder.Expression exp = new StringDecoder.StringExpression("C");
-        StringDecoder.Expression repExp = new StringDecoder.RepExpression("A",3,exp,"BABA" );
+        Expression exp = new StringDecoder.StringExpression("C");
+        Expression repExp = new StringDecoder.ComplexExpression("A",3,exp,"BABA" );
         assertEquals("ACCCBABA",repExp.evaluate());
+    }
+
+    @Test
+    void testEvaluationOfRepeatingExpression(){
+        Expression exp = new StringDecoder.StringExpression("C");
+        Expression repExp1= new StringDecoder.ComplexExpression("A",3,exp,"BABA" );
+        Expression repExp2 = new StringDecoder.ComplexExpression("A",3,exp,"BABA" );
+        List<Expression> expressions = new ArrayList<>();
+        expressions.add(repExp1);
+        expressions.add(repExp2);
+        Expression repeatingExpression = new StringDecoder.RepeatingExpressions(expressions);
+        assertEquals("ACCCBABAACCCBABA", repeatingExpression.evaluate());
     }
 
     @Test
     void testParseSimpleStringToStringExp(){
         String c = "C";
-        StringDecoder.Expression parse = StringDecoder.parse(c);
+        Expression parse = StringDecoder.parse(c);
         assertEquals(StringDecoder.StringExpression.class, Objects.requireNonNull(parse).getClass());
         assertEquals("C", parse.evaluate());
     }
@@ -61,24 +75,24 @@ class StringDecoderTest {
     @Test
     void testParseRepString(){
         String c = "3[C]";
-        StringDecoder.Expression parse = StringDecoder.parse(c);
-        assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
+        Expression parse = StringDecoder.parse(c);
+        assertEquals(StringDecoder.ComplexExpression.class, Objects.requireNonNull(parse).getClass());
         assertEquals("CCC", parse.evaluate());
     }
 
     @Test
     void testParseRepStringWithPreAndPostString(){
         String c = "a3[C]d";
-        StringDecoder.Expression parse = StringDecoder.parse(c);
-        assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
+        Expression parse = StringDecoder.parse(c);
+        assertEquals(StringDecoder.ComplexExpression.class, Objects.requireNonNull(parse).getClass());
         assertEquals("aCCCd", parse.evaluate());
     }
 
     @Test
     void testParseRepeatingRepString(){
         String c = "a3[C]dd3[D]";
-        StringDecoder.Expression parse = StringDecoder.parse(c);
-        assertEquals(StringDecoder.RepExpression.class, Objects.requireNonNull(parse).getClass());
+        Expression parse = StringDecoder.parse(c);
+        assertEquals(StringDecoder.ComplexExpression.class, Objects.requireNonNull(parse).getClass());
         assertEquals("aCCCddDDD", parse.evaluate());
     }
 
