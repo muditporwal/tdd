@@ -13,7 +13,7 @@ class PredictWinner {
         return results.stream().anyMatch(p -> p.player1score >= p.player2score);
     }
 
-    private static List<PlayResult> getPossibleResults(int[] nums) {
+    static List<PlayResult> getPossibleResults(int[] nums) {
         PlayResult result = new PlayResult(4,3);
         return Collections.singletonList(result);
     }
