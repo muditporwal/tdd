@@ -20,7 +20,10 @@ class PredictWinner {
          if (leftIndex >= rightIndex) {
             int score = nums[leftIndex];
             return Collections.singletonList(new PlayResult(score,0));
-            }
+            } else {
+            int scoreLeft = nums[rightIndex];
+            int scoreRight = nums[rightIndex];
+         }
             return Collections.emptyList();
         }
     }
