@@ -27,4 +27,14 @@ class PredictWinnerTest {
         assertTrue(b);
     }
 
+    @Test
+    void threeDigitNumberArray_ShouldEvaluate() {
+        int[] nums = new int[]{1,10,3};
+        boolean b = PredictWinner.PredictTheWinner(nums);
+        assertFalse(b);
+
+        nums = new int[]{1,3,3};
+        b = PredictWinner.PredictTheWinner(nums);
+        assertTrue(b);
+    }
 }
