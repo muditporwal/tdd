@@ -8,9 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class PredictWinnerTest {
 
     @Test
-    void setupInterface() {
+    void emptyNumberArray_ShouldReturnFalse() {
         int[] nums = new int[0];
         boolean b = PredictWinner.PredictTheWinner(nums);
         assertFalse(b);
     }
+
+
+
 }
