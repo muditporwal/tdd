@@ -20,5 +20,11 @@ class PredictWinnerTest {
         assertTrue(b);
     }
 
+    @Test
+    void twoDigitNumberArray_ShouldReturnTrue() {
+        int[] nums = new int[]{1,2};
+        boolean b = PredictWinner.PredictTheWinner(nums);
+        assertTrue(b);
+    }
 
 }
