@@ -21,8 +21,17 @@ class PredictWinner {
             int score = nums[leftIndex];
             return Collections.singletonList(new PlayResult(score,0));
             } else {
-            int scoreLeft = nums[rightIndex];
+            int scoreLeft = nums[leftIndex];
+            int scoreLeftPlus1 = nums[leftIndex+1];
             int scoreRight = nums[rightIndex];
+            int scoreRightMinus1 = nums[rightIndex-1];
+            ArrayList<PlayResult> currentResults = new ArrayList<>();
+            //Possibilities
+            //1 Left Chose Left, Right Chose Left+1
+            currentResults.add(new PlayResult(scoreLeft,scoreLeftPlus1));
+
+
+
          }
             return Collections.emptyList();
         }
