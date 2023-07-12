@@ -2,8 +2,7 @@ package org.bank;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PredictWinnerTest {
 
@@ -14,6 +13,12 @@ class PredictWinnerTest {
         assertFalse(b);
     }
 
+    @Test
+    void singleDigitNumberArray_ShouldReturnTrue() {
+        int[] nums = new int[]{1};
+        boolean b = PredictWinner.PredictTheWinner(nums);
+        assertTrue(b);
+    }
 
 
 }
