@@ -20,6 +20,20 @@ class PredictWinner {
         int score = nums[leftIndex];
         return Collections.singletonList(new PlayResult(score, 0));
       } else {
+        // Four Possibilities
+        // LI1, LI1+1
+          // Call Subtree ; Return the max
+          // Add these values
+        // LI1, RI1
+          // Call Subtree ; Return the max
+          // Add these values
+        // RI1 , LI1
+          // Call Subtree ; Return the max
+          // Add these values
+        // RI1, RI-1
+          // Call Subtree ; Return the max
+          // Add these values
+        // Return the Max
         return Collections.emptyList();
       }
     }
