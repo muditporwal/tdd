@@ -12,7 +12,10 @@ class PredictWinner {
 
   static List<PlayResult> getPossibleResults(int[] nums, int left, int right, boolean isPlayer1) {
     if (nums.length == 0) return Collections.singletonList(PlayResult.empty());
-    return Collections.emptyList();
+    if (nums.length == 1 && isPlayer1) return Collections.singletonList(new PlayResult(nums[0], 0));
+    else {
+      return Collections.emptyList();
+    }
   }
 
   /*
