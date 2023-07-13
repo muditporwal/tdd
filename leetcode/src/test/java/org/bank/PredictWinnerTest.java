@@ -63,6 +63,6 @@ class PredictWinnerTest {
         int[] nums = new int[]{1,2};
         PlayResult possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
         Assertions.assertEquals(2, possibleResults.player1score());
-        Assertions.assertEquals(1, possibleResults.player1score());
+        Assertions.assertEquals(1, possibleResults.player2score());
     }
 }
