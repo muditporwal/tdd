@@ -45,23 +45,24 @@ class PredictWinnerTest {
     @Test
     void playResultsForNoNumbers_ShouldReturnAnEmptyList() {
         int[] nums = new int[0];
-        List<PlayResult> possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
-        Assertions.assertEquals(0, possibleResults.size());
+        PlayResult possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
+        Assertions.assertEquals(0, possibleResults.player1score());
+        Assertions.assertEquals(0, possibleResults.player2score());
     }
 
     @Test
     void playResultsForOneNumber_ShouldReturnAListWithASingleElement() {
         int[] nums = new int[]{1};
-        List<PlayResult> possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
-        Assertions.assertEquals(1, possibleResults.size());
-        Assertions.assertEquals(1, possibleResults.get(0).player1score());
+        PlayResult possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
+        Assertions.assertEquals(1, possibleResults.player1score());
+        Assertions.assertEquals(0, possibleResults.player2score());
     }
 
     @Test
     void platResultForTwoNumbers_ShouldReturnAListWithASingleElement(){
         int[] nums = new int[]{1,2};
-        List<PlayResult> possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
-        Assertions.assertEquals(1, possibleResults.size());
-        Assertions.assertEquals(2, possibleResults.get(0).player1score());
+        PlayResult possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
+        Assertions.assertEquals(2, possibleResults.player1score());
+        Assertions.assertEquals(1, possibleResults.player1score());
     }
 }
