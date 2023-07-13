@@ -11,26 +11,26 @@ class PredictWinner {
     if (nums.length == 1 && isPlayer1)
       return true; // If only 1 player gets to choose and it is player1's turn
     if (right - left == 1) {
-      return appendToPlayersForLast2Moves(isPlayer1, parent, nums[left], nums[right]).doesPlayer1Win();
+      return resultForLast2Moves(isPlayer1, parent, nums[left], nums[right]).doesPlayer1Win();
     }
     else {
-      if (getPossibleResults(nums,left+1,right,!isPlayer1,newResult(isPlayer1, parent, nums[left]))) return true;
-      if (getPossibleResults(nums,left,right-1,!isPlayer1,newResult(isPlayer1, parent, nums[right]))) return true;
+      if (getPossibleResults(nums,left+1,right,!isPlayer1, resultForMove(isPlayer1, parent, nums[left]))) return true;
+      if (getPossibleResults(nums,left,right-1,!isPlayer1, resultForMove(isPlayer1, parent, nums[right]))) return true;
       return false;
     }
   }
 
-  private static PlayResult appendToPlayersForLast2Moves(boolean isPlayer1, PlayResult parent, int l, int r) {
+  private static PlayResult resultForLast2Moves(boolean isPlayer1, PlayResult parent, int l, int r) {
     if (r >= l) {
-      PlayResult res = newResult(isPlayer1, parent, r);
-      return newResult(!isPlayer1, res, l);
+      PlayResult res = resultForMove(isPlayer1, parent, r);
+      return resultForMove(!isPlayer1, res, l); // toggle player for move
     } else {
-      PlayResult res = newResult(isPlayer1, parent, l);
-      return newResult(!isPlayer1, res, r);
+      PlayResult res = resultForMove(isPlayer1, parent, l);
+      return resultForMove(!isPlayer1, res, r); // toggle player for move
     }
   }
 
-  private static PlayResult newResult(boolean isPlayer1, PlayResult parent, int score) {
+  private static PlayResult resultForMove(boolean isPlayer1, PlayResult parent, int score) {
     if (isPlayer1) {
       return parent.appendToPlayer1(score);
     }
@@ -51,10 +51,6 @@ class PredictWinner {
 
     PlayResult appendToPlayer2(int score) {
       return new PlayResult(player1score(), player2score() + score);
-    }
-
-    public void appendToPlayers(int p1score, int p2score) {
-      new PlayResult(player1score() + p1score, player2score() + p2score);
     }
 
     public boolean doesPlayer1Win() {

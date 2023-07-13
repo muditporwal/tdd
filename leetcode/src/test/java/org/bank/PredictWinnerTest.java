@@ -41,4 +41,12 @@ class PredictWinnerTest {
         b = PredictWinner.PredictTheWinner(nums);
         assertTrue(b);
     }
+
+
+    @Test
+    void failedCases(){
+        int[] nums = new int[]{2,4,55,6,8};
+        boolean b = PredictWinner.PredictTheWinner(nums);
+        assertFalse(b);
+    }
 }
