@@ -10,14 +10,7 @@ class PredictWinner {
     if (nums.length == 0) return true;
     if (nums.length == 1 && isPlayer1)
       return true; // If only 1 player gets to choose and it is player1's turn
-    if (nums.length == 2 && isPlayer1)
-      return true; // If only 2 options and player1's turn player1 will choose the biggest number
-    if (left == right) // base case
-    {
-      int score = nums[left];
-      PlayResult playResult = newResult(isPlayer1, parent, score);
-      return playResult.doesPlayer1Win();
-    } else if (right - left == 1) {
+    if (right - left == 1) {
       return appendToPlayersForLast2Moves(isPlayer1, parent, nums[left], nums[right]).doesPlayer1Win();
     }
     else {
