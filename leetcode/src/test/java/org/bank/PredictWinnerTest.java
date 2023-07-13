@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PredictWinnerTest {
 
     @Test
-    void emptyNumberArray_ShouldReturnFalse() {
+    void emptyNumberArray_ShouldReturnTrue() {
         int[] nums = new int[0];
         boolean b = PredictWinner.PredictTheWinner(nums);
         assertTrue(b);
