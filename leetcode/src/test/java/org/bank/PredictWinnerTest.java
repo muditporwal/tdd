@@ -57,4 +57,11 @@ class PredictWinnerTest {
         Assertions.assertEquals(1, possibleResults.get(0).player1score());
     }
 
+    @Test
+    void platResultForTwoNumbers_ShouldReturnAListWithASingleElement(){
+        int[] nums = new int[]{1,2};
+        List<PlayResult> possibleResults = PredictWinner.getPossibleResults(nums, 0,nums.length-1);
+        Assertions.assertEquals(1, possibleResults.size());
+        Assertions.assertEquals(2, possibleResults.get(0).player1score());
+    }
 }
