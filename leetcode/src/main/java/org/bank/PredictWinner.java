@@ -1,75 +1,55 @@
 package org.bank;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
 class PredictWinner {
   public static boolean PredictTheWinner(int[] nums) {
-    List<PlayResult> result = getPossibleResults(nums, 0, nums.length - 1,true);
-    return result.stream().anyMatch(PlayResult::doesPlayer1Win);
+    return getPossibleResults(nums, 0, nums.length - 1, true,PlayResult.newGame());
   }
 
-  static List<PlayResult> getPossibleResults(int[] nums, int left, int right, boolean isPlayer1) {
-    if (nums.length == 0) return Collections.singletonList(PlayResult.empty());
-    if (nums.length == 1 && isPlayer1) return Collections.singletonList(new PlayResult(nums[0], 0));
+  static boolean getPossibleResults(
+      int[] nums, int left, int right, boolean isPlayer1, PlayResult parent) {
+    if (nums.length == 0) return true;
+    if (nums.length == 1 && isPlayer1)
+      return true; // If only 1 player gets to choose and it is player1's turn
+    if (nums.length == 2 && isPlayer1)
+      return true; // If only 2 options and player1's turn player1 will choose the biggest number
+    if (left == right) // base case
+    {
+      int score = nums[left];
+      PlayResult playResult = newResult(isPlayer1, parent, score);
+      return playResult.doesPlayer1Win();
+    } else if (right - left == 1) {
+      return appendToPlayersForLast2Moves(isPlayer1, parent, nums[left], nums[right]).doesPlayer1Win();
+    }
     else {
-      return Collections.emptyList();
+      if (getPossibleResults(nums,left+1,right,!isPlayer1,newResult(isPlayer1, parent, nums[left]))) return true;
+      if (getPossibleResults(nums,left,right-1,!isPlayer1,newResult(isPlayer1, parent, nums[right]))) return true;
+      return false;
     }
   }
 
-  /*
-  static PlayResult getPossibleResults(int[] nums, int leftIndex, int rightIndex) {
-    if (nums.length == 0 || leftIndex > rightIndex) return PlayResult.empty();
-    else {
-      if (leftIndex == rightIndex) {
-        int score = nums[leftIndex];
-        return new PlayResult(score, 0);
-      } else {
-        // Four Possibilities
-        // LI1, LI1+1
-          // Call Subtree ; Return the max
-          // Add these values
-        PlayResult l_l1 = new PlayResult(nums[leftIndex],nums[leftIndex+1]);
-        PlayResult subTree_l_l1 = getPossibleResults(nums,leftIndex+2,rightIndex);
-        l_l1.appendToPlayers(subTree_l_l1.player1score,subTree_l_l1.player2score);
-
-        // LI1, RI1
-          // Call Subtree ; Return the max
-          // Add these values
-        PlayResult l_r = new PlayResult(nums[leftIndex],nums[rightIndex]);
-        PlayResult subTree_l_r = getPossibleResults(nums,leftIndex+1,rightIndex-1);
-        l_r.appendToPlayers(subTree_l_r.player1score,subTree_l_r.player2score);
-        // RI1 , LI1
-          // Call Subtree ; Return the max
-          // Add these values
-        PlayResult r_l = new PlayResult(nums[rightIndex],nums[leftIndex]);
-        PlayResult subTree_r_l = getPossibleResults(nums,leftIndex+1,rightIndex-1);
-        r_l.appendToPlayers(subTree_r_l.player1score,subTree_r_l.player2score);
-        // RI1, RI-1
-          // Call Subtree ; Return the max
-          // Add these values
-        PlayResult r_r1 = new PlayResult(nums[rightIndex],nums[rightIndex-1]);
-        PlayResult subTree_r_r1 = getPossibleResults(nums,leftIndex,rightIndex-2);
-        r_r1.appendToPlayers(subTree_r_r1.player1score,subTree_r_r1.player2score);
-
-        // Return the Max
-        return Stream.of(l_l1, l_r, r_l, r_r1)
-            .max(
-                (o1, o2) -> {
-                  if (o1.player1score() > o2.player1score()) return 1;
-                  if (o1.player1score() == o2.player1score()) return Integer.compare(o2.player2score(), o1.player2score());
-                  return -1;
-                })
-            .orElse(PlayResult.empty());
-      }
+  private static PlayResult appendToPlayersForLast2Moves(boolean isPlayer1, PlayResult parent, int l, int r) {
+    if (r >= l) {
+      PlayResult res = newResult(isPlayer1, parent, r);
+      return newResult(!isPlayer1, res, l);
+    } else {
+      PlayResult res = newResult(isPlayer1, parent, l);
+      return newResult(!isPlayer1, res, r);
     }
   }
-  */
+
+  private static PlayResult newResult(boolean isPlayer1, PlayResult parent, int score) {
+    if (isPlayer1) {
+      return parent.appendToPlayer1(score);
+    }
+    else {
+      return parent.appendToPlayer2(score);
+    }
+  }
+
 
   record PlayResult(int player1score, int player2score) {
-    public static PlayResult empty() {
-      return new PlayResult(0,0);
+    public static PlayResult newGame() {
+      return new PlayResult(0, 0);
     }
 
     PlayResult appendToPlayer1(int score) {
