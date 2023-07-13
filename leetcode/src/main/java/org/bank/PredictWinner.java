@@ -3,15 +3,19 @@ package org.bank;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 class PredictWinner {
   public static boolean PredictTheWinner(int[] nums) {
-    if (nums.length == 0) return false;
-    PlayResult result = getPossibleResults(nums, 0, nums.length - 1);
-    return result.doesPlayer1Win();
+    List<PlayResult> result = getPossibleResults(nums, 0, nums.length - 1,true);
+    return result.stream().anyMatch(PlayResult::doesPlayer1Win);
   }
 
+  static List<PlayResult> getPossibleResults(int[] nums, int left, int right, boolean isPlayer1) {
+    if (nums.length == 0) return Collections.singletonList(PlayResult.empty());
+    return Collections.emptyList();
+  }
+
+  /*
   static PlayResult getPossibleResults(int[] nums, int leftIndex, int rightIndex) {
     if (nums.length == 0 || leftIndex > rightIndex) return PlayResult.empty();
     else {
@@ -58,6 +62,7 @@ class PredictWinner {
       }
     }
   }
+  */
 
   record PlayResult(int player1score, int player2score) {
     public static PlayResult empty() {
